@@ -15,6 +15,9 @@ body{
     font-family: 'Poppins', sans-serif;
     color: #FFFFFF;
     background-color: #222733;
+    display: flex;
+    flex-flow:column nowrap;
+    border: none;
 }
 
 h1,h2{
@@ -22,17 +25,38 @@ h1,h2{
 }
 
 h1{
+    font-style: normal;
+    font-weight: bold;
     font-size: 72px;
+    line-height: 108px;
 }
 
 h2{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 96px;
+}
+
+h3{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 72px;
+}
+
+h4{
+    font-style: normal;
+    font-weight: normal;
     font-size: 24px;
+    line-height: 36px;
 }
 
 p{
-    line-height: 1.5rem;
+    font-style: normal;
+    font-weight: normal;
     font-size: 18px;
-    margin: 10px 0;
+    line-height: 150%;
 }
 
 a{
@@ -44,7 +68,10 @@ ul{
 }
 
 .container{
-    max-width: 1366px;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    
 }
 
 /* navbar */
@@ -57,17 +84,19 @@ nav{
     font-size: 24px;
     width: 100%;
     height: 56px;
-    background-color: rgba(82, 94, 101, 0.74);
+    background-color: rgb(82, 94, 101);
+    border: none;
+    z-index: 50;
 }
 
 nav p {
     font-size: 24px;
-    z-index: 2;
+    z-index: 400;
 }
 
 nav ul{
     display: flex;
-    z-index: 2;
+    z-index: 400;
 }
 
 nav ul li{
@@ -83,5 +112,53 @@ nav ul li{
     margin: 0 auto;
     position: relative;
     bottom: 18px;
-    z-index: 1;
+    z-index: 100;
+}
+
+
+/* body */
+
+.title{
+    background: rgba(82, 94, 101, 0.74);
+    border-radius: 0px 0px 52px 56px;
+    width: 714px;
+    height: 201px;
+    align-self: center;
+    border: none;
+    position: relative;
+    top: -4px;
+    z-index: 10;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.container > img{
+    margin-top: 42px;
+    width: 231px;
+    height: 231px;
+    align-self: center;
+}
+
+.container h4 {
+    margin-top: 42px;
+    width: 673px;
+    height: 297px;
+    text-align: center;
+    align-self: center;
+}
+
+.arrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 103px;
+}
+
+.arrow h3{
+    font-weight: bold;
+}
+
+.arrow img{
+    width: 194px;
+    height: 72px;
 }
