@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&display=swap');
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,body{
+    height: auto;
+    background: #222733;
+    font-family: "poppins", sans-serif;
+    color: #FFFFFF;
+}
+
+h1{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 72px;
+    margin: 10px 0;
+}
+
+h2{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 72px;
+    margin: 10px 0;
+}
+
+h3{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 64px;
+    margin: 10px 0;
+}
+
+h4{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 48px;
+    margin: 10px 0;
+}
+
+h5{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 36px;
+    margin: 10px 0;
+}
+
+p{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+input{
+    outline: none;
+    border: none;
+}
+
+.container{
+    margin: 56px 7%;
+    /* height: 1655px; */
+    height: auto;
+}
+
+/*    navigation bar     */
+
+nav{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 0 7%;
+    display: flex;
+    /* flex-flow: row nowrap; */
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 56px;
+    background: rgba(82, 94, 101, 1);
+}
+
+nav ul{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    width: auto;
+}
+
+nav ul li {
+    margin: 0 0 0 2vw;
+}
+
+
+.line-w{
+    width: calc( 100vw - 20vw );
+    margin: 0px auto 40px auto;
+    height: 10px;
+    border-radius: 10px;
+    background-color: #C4C4C4; 
+}
+
+@media screen and ( max-width : 320px) {
+    nav{
+        padding: 0 3%;
+    }
+}
+
+/*      main     */
+
+main{
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+main .titleBox{
+    width: 714px;
+    margin-top: 56px;
+    padding: 4vw 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    background: rgba(82, 94, 101, 0.74);
+    border-radius: 0px 0px 52px 52px;
+    text-align: center;
+}
+
+main .titleBox p{
+        padding: 0px 10px;
+}
+
+main > img {
+    width: 231px;
+    height: 231px;
+    margin: 20px 0;
+    align-self: center;
+}
+
+main h5 {
+    text-align: center;
+    margin: 0 20px;
+}
+
+.arrow{
+    display: flex;
+    flex-flow:  column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 103px;
+}
+
+.arrow h3{
+    text-align: center;
+}
+
+.arrow img{
+    width: 194px;
+    height: 72px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 714px){
+    main .titleBox{
+        width: 100%;
+        border-radius: 0px;
+    }
+}
