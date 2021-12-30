@@ -1,193 +1,241 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&display=swap');
 
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-html,body{
-    height: auto;
-    background: #222733;
-    font-family: "poppins", sans-serif;
-    color: #FFFFFF;
+html,
+body {
+  height: auto;
+  background: #222733;
+  font-family: 'poppins', sans-serif;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: normal;
 }
 
-h1{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 64px;
-    line-height: 72px;
-    margin: 10px 0;
+h1 {
+  font-size: 4rem;
+  line-height: 4rem;
+  margin: 10px 0;
+  font-weight: normal;
 }
 
-h2{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 72px;
-    margin: 10px 0;
+h2 {
+  font-size: 3rem;
+  line-height: 3rem;
+  margin: 10px 0;
+  font-weight: normal;
 }
 
-h3{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 64px;
-    margin: 10px 0;
+h3 {
+  font-size: 2.25rem;
+  line-height: 2.25rem;
+  margin: 10px 0;
+  font-weight: normal;
 }
 
-h4{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 48px;
-    margin: 10px 0;
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  margin: 10px 0;
+  font-weight: normal;
 }
 
-h5{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 36px;
-    margin: 10px 0;
+h5 {
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  margin: 10px 0;
+  font-weight: normal;
 }
 
-p{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 24px;
-    margin: 10px 0;
+h6 {
+  font-size: 1rem;
+  line-height: 1.125rem;
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+p {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  margin: 10px 0;
+  font-weight: normal;
 }
 
 a {
-    text-decoration: none;
-    color: #FFFFFF;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 24px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.125rem;
+  font-weight: normal;
 }
 
-ul{
-    list-style-type: none;
+ul {
+  list-style-type: none;
 }
 
-input{
-    outline: none;
-    border: none;
+input {
+  outline: none;
+  border: none;
 }
 
-.container{
-    margin: 56px 7%;
-    /* height: 1655px; */
-    height: auto;
+.container {
+  margin: 56px 7%;
+  /* height: 1655px; */
+  height: auto;
 }
 
 /*    navigation bar     */
 
-nav{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    padding: 0 7%;
-    display: flex;
-    /* flex-flow: row nowrap; */
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    height: 56px;
-    background: rgba(82, 94, 101, 1);
+nav {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 0 7%;
+  display: flex;
+  /* flex-flow: row nowrap; */
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 56px;
+  background: rgba(82, 94, 101, 1);
 }
 
-nav ul{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    width: auto;
+nav ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  width: auto;
 }
 
 nav ul li {
-    margin: 0 0 0 2vw;
+  margin: 0 0 0 2vw;
 }
 
-
-.line-w{
-    width: calc( 100vw - 20vw );
-    margin: 0px auto 40px auto;
-    height: 10px;
-    border-radius: 10px;
-    background-color: #C4C4C4; 
+.line-w {
+  width: calc(100vw - 20vw);
+  margin: 0px auto 40px auto;
+  height: 10px;
+  border-radius: 10px;
+  background-color: #c4c4c4;
 }
 
-@media screen and ( max-width : 320px) {
-    nav{
-        padding: 0 3%;
-    }
+@media screen and (max-width: 320px) {
+  nav {
+    padding: 0 3%;
+  }
 }
 
 /*      main     */
 
-main{
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
+main {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
-main .titleBox{
-    width: 714px;
-    margin-top: 56px;
-    padding: 4vw 0;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    background: rgba(82, 94, 101, 0.74);
-    border-radius: 0px 0px 52px 52px;
-    text-align: center;
+main .titleBox {
+  width: 714px;
+  margin-top: 56px;
+  padding: 4vw 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background: rgba(82, 94, 101, 0.74);
+  border-radius: 0px 0px 52px 52px;
+  text-align: center;
 }
 
-main .titleBox p{
-        padding: 0px 10px;
+main .titleBox p {
+  padding: 0px 10px;
 }
 
 main > img {
-    width: 231px;
-    height: 231px;
-    margin: 20px 0;
-    align-self: center;
+  width: 40%;
+  height: 40%;
+  margin: 20px 0;
+  align-self: center;
 }
 
-main h5 {
-    text-align: center;
-    margin: 0 20px;
+main h6 {
+  text-align: center;
+  margin: 0 20px;
+  line-height: 1.5rem;
+  font-weight: normal;
 }
 
-.arrow{
-    display: flex;
-    flex-flow:  column nowrap;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 103px;
+.arrow {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 103px;
 }
 
-.arrow h3{
-    text-align: center;
+.arrow h3 {
+  text-align: center;
 }
 
-.arrow img{
-    width: 194px;
-    height: 72px;
-    margin: 0 auto;
+.arrow a {
+  width: 50%;
+  margin-top: 10px;
 }
 
-@media screen and (max-width: 714px){
-    main .titleBox{
-        width: 100%;
-        border-radius: 0px;
-    }
+.arrow img {
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  body,
+  html {
+    font-size: 97% !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body,
+  html {
+    font-size: 95% !important;
+  }
+}
+
+@media screen and (max-width: 714px) {
+  body,
+  html {
+    font-size: 90% !important;
+  }
+
+  main .titleBox {
+    width: 100%;
+    border-radius: 0px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  body,
+  html {
+    font-size: 85% !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  body,
+  html {
+    font-size: 67% !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  body,
+  html {
+    font-size: 60% !important;
+  }
 }
