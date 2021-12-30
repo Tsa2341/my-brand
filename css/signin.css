@@ -142,7 +142,11 @@ main > div {
 
 main form {
   width: 80%;
+<<<<<<< HEAD
   /* height: 80%; */
+=======
+  height: 80%;
+>>>>>>> 852a9c1 (style(fighting-style): update all pages)
   margin: 0 auto;
   padding: 7vw 0;
   /* margin-top: 40%; */
