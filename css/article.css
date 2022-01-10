@@ -144,8 +144,16 @@ main > div {
   position: relative;
 }
 
-main > div img {
+main > div > img {
   position: relative;
+}
+
+.back-arrow{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5%;
+  margin: 2vw 0 0 2vw;
 }
 
 main > div h1 {
