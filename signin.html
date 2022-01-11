@@ -35,18 +35,21 @@
         <form action="submit">
             <div>
                 <h5>Email Address: </h5>
-                <input type="text" label="email" name="name">
+                <input type="text" label="email" name="name" id="email">
+                <div id="email-validator"></div>
             </div>
             <div>
                 <h5>Pasword: </h5>
-                <input type="text" label="password" name="password">
+                <input type="password" label="password" name="password" id="password">
+                <div id="password-validator"></div>
             </div>
-            <button>
-                <h5><strong><a href="./dashboard.html">Sign In</strong></h5></a>
+            <button id="button" disabled>
+                <h5><strong>Sign In</strong></h5>
             </button>
         </form>
 
     </main>
+    <script type="module" defer src="./js/signinScript.js" ></script>
 </body>
 
 </html>
