@@ -1,6 +1,6 @@
 
 export const emailValidator = (email) => {
-    const pattern = /^(.+)([a-z]+)([0-9]+)@(gmail)\.(com)\s*$/i;
+    const pattern = /^(.+)([a-z]+)([0-9]+)@(gmail|yahoo|andela)\.(com)\s*$/i;
 
     return new Promise((resolve, reject) => {
         if (email === '') {
@@ -23,4 +23,22 @@ export const passwordValidator = (password) => {
         } 
     })
     
+}
+
+
+export const spaceValidator = (...args) => {
+
+    let arr = [...args]
+    var ans = true;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === '') {
+            ans = false;
+            return ans;
+        } else {
+            ans = true;
+        } 
+    }
+
+    return ans;
 }

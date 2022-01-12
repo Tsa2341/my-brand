@@ -133,6 +133,7 @@ nav ul li {
 /*    main section    */
 
 main{
+  padding-top: 1px;
     padding-bottom: 40px;
 }
 

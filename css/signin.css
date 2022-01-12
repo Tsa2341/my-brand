@@ -175,10 +175,12 @@ form div input {
   padding: 10px 5px;
 }
 
-form div input:focus{
+form div input:focus {
   border: 2px solid rgb(85, 85, 230, 0.7);
   color: green;
 }
+
+
 
 form button {
   width: 80%;
@@ -190,6 +192,7 @@ form button {
   justify-content: center;
   align-items: center;
   border: none;
+  cursor: pointer;
 }
 
 form button h5 a {

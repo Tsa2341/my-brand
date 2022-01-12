@@ -57,3 +57,22 @@ button.addEventListener('click', (e) => {
     signinEmailValidator(() => signinPasswordValidator(() => window.location.assign("../dashboard.html")));
 
 })
+
+window.onbeforeunload = (e) => {
+    emailInput.addEventListener('keyup', (e) => {
+        signinEmailValidator();
+    })
+    
+    
+    passwordInput.addEventListener('keyup', (e) => {
+        signinPasswordValidator();
+    })
+    
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log("email input value = ", emailInput, "password input value = ", passwordInput)
+    
+        signinEmailValidator(() => signinPasswordValidator(() => window.location.assign("../dashboard.html")));
+    
+    })
+}
