@@ -1,10 +1,6 @@
 
 export const emailValidator = (email) => {
-<<<<<<< HEAD
     const pattern = /^.*[a-z]+[0-9]*.*@(gmail|yahoo|andela)\.(com)\s*$/i;
-=======
-    const pattern = /^(.+)([a-z]+)([0-9]+)@(gmail)\.(com)\s*$/i;
->>>>>>> b25ab93 (chore(flight): added validation for signin page)
 
     return new Promise((resolve, reject) => {
         if (email === '') {
@@ -27,7 +23,6 @@ export const passwordValidator = (password) => {
         } 
     })
     
-<<<<<<< HEAD
 }
 
 
@@ -47,6 +42,3 @@ export const spaceValidator = (...args) => {
 
     return ans;
 }
-=======
-}
->>>>>>> b25ab93 (chore(flight): added validation for signin page)
