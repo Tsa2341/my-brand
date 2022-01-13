@@ -1,73 +1,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;900&display=swap');
 
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-html,body{
-    height: auto;
-    background: #222733;
-    font-family: "poppins", sans-serif;
-    color: #FFFFFF;
+html,
+body {
+  height: auto;
+  background: #222733;
+  font-family: 'poppins', sans-serif;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: normal;
 }
 
-h1{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 64px;
-    line-height: 72px;
-    margin: 10px 0;
+h1 {
+  font-size: 4rem;
+  line-height: 4rem;
+  margin: 10px 0;
+  font-weight: normal;
 }
 
-h2{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 72px;
-    margin: 10px 0;
+h2 {
+  font-size: 3rem;
+  line-height: 3rem;
+  margin: 10px 0;
+  font-weight: normal;
 }
 
-h3{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 64px;
-    margin: 10px 0;
+h3 {
+  font-size: 2.25rem;
+  line-height: 2.25rem;
+  margin: 10px 0;
+  font-weight: normal;
 }
 
-h4{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 48px;
-    margin: 10px 0;
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  margin: 10px 0;
+  font-weight: normal;
 }
 
-h5{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 36px;
-    margin: 10px 0;
+h5 {
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  margin: 10px 0;
+  font-weight: normal;
 }
 
-p{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 24px;
-    margin: 10px 0;
+h6 {
+  font-size: 1rem;
+  line-height: 1.125rem;
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+p {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  margin: 10px 0;
+  font-weight: normal;
 }
 
 a {
-    text-decoration: none;
-    color: #FFFFFF;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 24px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.125rem;
+  font-weight: normal;
 }
 
 ul{
@@ -129,6 +133,7 @@ nav ul li {
 /*    main section    */
 
 main{
+  padding-top: 1px;
     padding-bottom: 40px;
 }
 
@@ -158,7 +163,7 @@ main div img{
 main div p{
     width: 40vw;
     margin: 0 0 20px 40px;
-    line-height: 24px;
+    line-height: 1.5rem;
 }
 
 @media screen and (max-width : 712px) {
@@ -171,4 +176,51 @@ main div p{
         text-align: center;
         margin: 0;
     }
+}
+
+@media screen and (max-width: 1024px) {
+  body,
+  html {
+    font-size: 97% !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body,
+  html {
+    font-size: 95% !important;
+  }
+}
+
+@media screen and (max-width: 714px) {
+  body,
+  html {
+    font-size: 90% !important;
+  }
+
+  main .titleBox {
+    width: 100%;
+    border-radius: 0px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  body,
+  html {
+    font-size: 85% !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  body,
+  html {
+    font-size: 67% !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  body,
+  html {
+    font-size: 60% !important;
+  }
 }

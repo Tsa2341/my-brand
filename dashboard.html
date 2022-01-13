@@ -7,6 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/dashboard.css" />
   <title>Dashboard</title>
+  <script>
+    if (localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).isLoggedIn === true) {
+
+    } else window.location.assign('../signin.html');
+  </script>
 </head>
 
 <body>
@@ -30,7 +35,7 @@
     <aside>
       <section>
         <h3>Alan's dashboard</h3>
-      <img src="./public/Group 5 profile img.svg" alt="profile image">
+        <img src="./public/Group 5 profile img.svg" alt="profile image">
       </section>
       <section>
         <div>
@@ -41,9 +46,23 @@
           <img src="./public/phone.svg" alt="phone icon">
           <p>+250 787996085</p>
         </div>
-        <div class="aside-card">
-          <h3>Blogs</h3>
-        </div>
+
+        <a href="./dashboard.html">
+          <div class="aside-card">
+            <h3>Blogs</h3>
+          </div>
+        </a>
+        <a href="./dashboard-queries.html">
+          <div class="aside-card">
+            <h3>Queries</h3>
+          </div>
+        </a>
+        <a href="./index.html">
+          <div id="logout" class="aside-card" style="background-color: rgba(248, 42, 42, 0.664);">
+            <h3>Logout</h3>
+          </div>
+        </a>
+
       </section>
     </aside>
 
@@ -56,65 +75,82 @@
         <div>
           <p>BLog1</p>
         </div>
-        <img src="./public/edit icon.svg" alt="edit icon">
+        <a href="./add-update.html">
+          <img src="./public/edit icon.svg" alt="edit icon">
+        </a>
         <img src="./public/bin.svg" alt="delete icon">
       </div>
       <div class="blog-box">
         <div>
           <p>BLog1</p>
         </div>
-        <img src="./public/edit icon.svg" alt="edit icon">
+        <a href="./add-update.html">
+          <img src="./public/edit icon.svg" alt="edit icon">
+        </a>
         <img src="./public/bin.svg" alt="delete icon">
       </div>
       <div class="blog-box">
         <div>
           <p>BLog1</p>
         </div>
-        <img src="./public/edit icon.svg" alt="edit icon">
+        <a href="./add-update.html">
+          <img src="./public/edit icon.svg" alt="edit icon">
+        </a>
         <img src="./public/bin.svg" alt="delete icon">
       </div>
       <div class="blog-box">
         <div>
           <p>BLog2</p>
         </div>
-        <img src="./public/edit icon.svg" alt="edit icon">
+        <a href="./add-update.html">
+          <img src="./public/edit icon.svg" alt="edit icon">
+        </a>
         <img src="./public/bin.svg" alt="delete icon">
       </div>
       <div class="blog-box">
         <div>
           <p>BLog3</p>
         </div>
-        <img src="./public/edit icon.svg" alt="edit icon">
+        <a href="./add-update.html">
+          <img src="./public/edit icon.svg" alt="edit icon">
+        </a>
         <img src="./public/bin.svg" alt="delete icon">
       </div>
       <div class="blog-box">
         <div>
           <p>BLog4</p>
         </div>
-        <img src="./public/edit icon.svg" alt="edit icon">
+        <a href="./add-update.html">
+          <img src="./public/edit icon.svg" alt="edit icon">
+        </a>
         <img src="./public/bin.svg" alt="delete icon">
       </div>
       <div class="blog-box">
         <div>
           <p>BLog5</p>
         </div>
-        <img src="./public/edit icon.svg" alt="edit icon">
+        <a href="./add-update.html">
+          <img src="./public/edit icon.svg" alt="edit icon">
+        </a>
         <img src="./public/bin.svg" alt="delete icon">
       </div>
       <div class="blog-box">
         <div>
           <p>BLog6</p>
         </div>
-        <img src="./public/edit icon.svg" alt="edit icon">
+        <a href="./add-update.html">
+          <img src="./public/edit icon.svg" alt="edit icon">
+        </a>
         <img src="./public/bin.svg" alt="delete icon">
       </div>
-      <div>
+      <div class="add-button">
         <a href="./add-update.html">
           <img src="./public/add button.svg" alt="add button">
         </a>
       </div>
     </div>
   </main>
+  <script type="module" defer src="./js/dashboardScript.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dashboard-queries.css" />
+    <title>Dashboard</title>
+    <script>
+        if (!localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).isLoggedIn !== true) {
+            window.location.assign('../signin.html');
+        }
+    </script>
+</head>
+
+<body>
+
+    <!--  navigation bar     -->
+
+    <nav>
+        <a href="./index.html">Home</a>
+        <ul>
+            <li><a href="./signin.html">Signin</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./projects.html">Projects</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+        </ul>
+    </nav>
+
+    <!--     main page      -->
+
+    <main>
+        <aside>
+            <section>
+                <h3>Alan's dashboard</h3>
+                <img src="./public/Group 5 profile img.svg" alt="profile image">
+            </section>
+            <section>
+                <div>
+                    <img src="./public/gmail.svg" alt="gmail icon">
+                    <p>alanshema2002@gmail.com</p>
+                </div>
+                <div>
+                    <img src="./public/phone.svg" alt="phone icon">
+                    <p>+250 787996085</p>
+                </div>
+
+                <a href="./dashboard.html">
+                    <div class="aside-card">
+                        <h3>Blogs</h3>
+                    </div>
+                </a>
+                <a href="./dashboard-queries.html">
+                    <div class="aside-card">
+                        <h3>Queries</h3>
+                    </div>
+                </a>
+                <a href="./index.html">
+                    <div id="logout" class="aside-card" style="background-color: rgba(248, 42, 42, 0.664);">
+                        <h3>Logout</h3>
+                    </div>
+                </a>
+
+            </section>
+        </aside>
+
+        <div class="body">
+            <div class="title">
+                <h4>Blogs</h4>
+                <div class="line-w"></div>
+            </div>
+            <div class="query-container">
+                <h1 class="query-name">alan</h1>
+                <h2 class="query-email">Email</h2>
+                <div class="query-description">
+                    Lörem ipsum hypoligt dos liksom miskapet. Deska apona. Pevis ontoskop medan nyrenas är sagisk telenal. Krofären befälingar pasesk.
+
+                    Eure mis trilig därför att tis doskap, trek såväl som järosa. Kvasigen dens potir, rest eftersom exosevigisk rerade. In dekakyskap stenorade makronat remide av polyn. Polyr ultravisade nyra, pon medan tylogi.
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module" defer src="./js/dashboardQueriesScript.js"></script>
+</body>
+
+</html>
