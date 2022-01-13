@@ -1,0 +1,50 @@
+@import url("./dashboard.css");
+
+.query-container{
+    display: flex;
+    flex-flow: column nowrap !important;
+    width: 1fr;
+    margin: 3vw 7vw;
+    padding: 2.5rem;
+    background: #465058;
+    text-align: left;
+}
+
+.query-name {
+    padding: 0.5rem 1.5rem;
+    background: #222733;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    text-decoration-line: underline;
+    color: #C4C4C4;
+    display: static !important;
+}
+
+.query-email {
+    padding: 0.5rem 1.5rem;
+    background: #222733;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    text-decoration-line: underline;
+    color: #C4C4C4;
+    display: static !important;
+}
+
+.query-description{
+    padding: 0.5rem 1.5rem;
+    background: #222733;
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #C4C4C4;
+    text-align: left;
+    display: static !important;
+}

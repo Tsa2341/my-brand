@@ -41,6 +41,21 @@ const contactGeneralValidator = (func) => {
         
 }
 
+const saveMessage = (name, email, description) => {
+    
+    const prevQueries = localStorage.getItem("queries") ? Object.values(JSON.parse(localStorage.getItem("queries"))) : [];
+
+
+    localStorage.setItem("queries", JSON.stringify({
+        ...[
+            ...prevQueries,
+            { name, email, description }
+        ]
+    }));
+
+    console.log(JSON.parse(localStorage.getItem("queries")))
+}
+
 // add eventlisteners on email and button
 
 emailEl.addEventListener('keyup', (e) => {
@@ -48,7 +63,7 @@ emailEl.addEventListener('keyup', (e) => {
 })
 
 button.addEventListener('click', (e) => {
-    contactGeneralValidator(()=>{console.log("full names = ",nameEl.value, "email = ", emailEl.value, " description = ",descriptionEl.value)})
+    contactGeneralValidator(() => { saveMessage(nameEl.value, emailEl.value, descriptionEl.value) })
 })
 
 
@@ -60,6 +75,6 @@ window.onbeforeunload = (e) => {
     })
     
     button.removeEventListener('click', (e) => {
-        contactGeneralValidator(()=>{console.log("full names = ",nameEl.value, "email = ", emailEl.value, " description = ",descriptionEl.value)})
+        contactGeneralValidator(saveMessage( nameEl.value, emailEl.value, descriptionEl.value))
     })
 }

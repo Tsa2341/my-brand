@@ -199,7 +199,7 @@ main aside .aside-card {
   border: 1px solid #465058;
   box-sizing: border-box;
   margin: 0;
-  margin-top: 6vw;
+  margin-top: 2vw;
   padding: 2vw 0;
 }
 
@@ -275,12 +275,12 @@ main aside .aside-card * {
   margin: 5px 0;
 }
 
-.body :last-child {
+.body .add-button  {
   display: flex;
   flex-flow: row-reverse nowrap;
 }
 
-.body :last-child img {
+.body .add-button  img {
   width: 10vw;
   margin: 0 7vw 7vw 0;
 }
