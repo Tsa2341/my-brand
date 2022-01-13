@@ -1,6 +1,6 @@
 
 export const emailValidator = (email) => {
-    const pattern = /^(.+)([a-z]+)([0-9]+)@(gmail|yahoo|andela)\.(com)\s*$/i;
+    const pattern = /^.*[a-z]+[0-9]*.*@(gmail|yahoo|andela)\.(com)\s*$/i;
 
     return new Promise((resolve, reject) => {
         if (email === '') {
