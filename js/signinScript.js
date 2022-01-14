@@ -99,7 +99,16 @@ passwordInput.addEventListener('keyup', (e) => {
 button.addEventListener('click', (e) => {
     e.preventDefault();
 
-    userValidator(() => signinPasswordValidator(signinEmailValidator()));
+    // userValidator(() => signinPasswordValidator(signinEmailValidator()));
+
+    if (emailInput.value !== '' && passwordInput.value !== "") {
+        console.log(passwordInput.value)
+        // userValidator(() => signinPasswordValidator(signinEmailValidator()));
+        userValidator();
+    } else {
+        signinEmailValidator()
+        signinPasswordValidator()
+    }
     
 })
     
@@ -121,7 +130,7 @@ window.onbeforeunload = (e) => {
     button.addEventListener('click', (e) => {
         e.preventDefault();
     
-        userValidator(() => signinPasswordValidator(signinEmailValidator()));
+        
         
     })
 }

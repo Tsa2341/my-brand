@@ -8,7 +8,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/add-update.css" />
   <title>Add or update</title>
-
 </head>
 
 <body>
@@ -53,6 +52,22 @@
     </div>
 
   </main>
+  <script defer>
+    tinymce.init({
+      selector: 'textarea',
+      content_style: 'body { background: #c4c4c4; border-radius: 10px; font-size: 1.5rem; padding: 10px; }',
+      plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+      toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+      toolbar_mode: 'floating',
+      tinycomments_mode: 'embedded',
+      tinycomments_author: 'Author name',
+    });
+
+    document.getElementById('post').addEventListener('click', (e) => {
+      console.log(tinymce.get("textarea").getContent());
+    })
+  </script>
+  <script type="module" defer src="./js/addUpdateScript.js"></script>
 
   <script type="module" src="./js/addUpdateScript.js"></script>
   <script src="https://cdn.tiny.cloud/1/p692rey0hjk88u1bft8busg47rablw56ksoex9k43nqllrdr/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
