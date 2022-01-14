@@ -265,11 +265,13 @@ main aside .aside-card * {
   margin-right: 2%;
   background: #000000;
   border-radius: 5px;
+  align-items: center;
 }
 
 .body .blog-box div p {
   margin: auto 0 auto 2vw;
-  text-align: center;
+  cursor: pointer;
+  /* text-align: center; */
 }
 
 .body .blog-box img {

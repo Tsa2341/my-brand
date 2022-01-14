@@ -2,11 +2,13 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/add-update.css" />
   <title>Add or update</title>
+
 </head>
 
 <body>
@@ -27,22 +29,53 @@
   <!--     main section      -->
 
   <main>
-
-    <a href="./dashboard.html"><img src="./public/back arrow.svg" alt="back"></a>
+    <!-- <a href="./dashboard.html"> -->
+    <img src="./public/back arrow.svg" alt="back" id="back-arrow">
+    <!-- </a> -->
     <h3>Update new blog or Projects</h3>
     <div class="line-w"></div>
-    <input type="text" placeholder="Input your title">
-    <textarea name="textarea">
-      Lörem ipsum intimitetskoordinator agt. Sont epiform. Änat teling dekaben, radiodiktisk: tengar. Ted tigt polig ifall mick krol nysåre miska. Hypotedade bior, oaktat ludar. Angen dong oning. Elig repist. Treling nel soligt om rimirade heterona svenna sitt liv, och pregeligt tektig. Tel krisväska kyngen visyrärad gende. Irade metrosexualitet som ägisk nir i paltkoma och ar. Tetrarägisk euroledes för att ara att biodade din prokotta diask. 
-    </textarea>
-    <div class="image-preview">
-      <h3>Image Preview</h3>
-    </div>
+
+    <input type="text" id="title" placeholder="Input your title">
+    <div id="title-error"></div>
+
+    <textarea name="textarea" id="textarea"></textarea>
+    <div id="description-error"></div>
+
+
+    <img src='' alt="image-preview" class="image-preview" id="image-preview" />
+    <div id="image-error"></div>
+    <div id="general-success"></div>
+    <!-- <h3>Image Preview</h3>
+    </div> -->
     <div>
-      <button>Post</button>
+      <button id="post">Post</button>
       <input type="file" name="file" id="file" placeholder="Update the pic">
     </div>
+
   </main>
+
+  <script type="module" src="./js/addUpdateScript.js"></script>
+  <script src="https://cdn.tiny.cloud/1/p692rey0hjk88u1bft8busg47rablw56ksoex9k43nqllrdr/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+  <script>
+    window.onload = () => {
+      console.log("tinymce script start")
+      tinymce.init({
+        selector: 'textarea',
+        content_style: 'body { background: #c4c4c4; border-radius: 10px; font-size: 1.5rem; padding: 10px; }',
+        plugins: 'a11ychecker advcode casechange export formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+        toolbar: 'a11ycheck addcomment showcomments casechange checklist code export formatpainter pageembed permanentpen table',
+        toolbar_mode: 'floating',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+        setup: function (editor) {
+          editor.on('init', function (e) {
+            window.add()
+          });
+        }
+      });
+    }
+  </script>
+
 
 </body>
 

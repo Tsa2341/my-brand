@@ -42,7 +42,7 @@ const contactGeneralValidator = (func) => {
 }
 
 const saveMessage = (name, email, description) => {
-    
+
     const prevQueries = localStorage.getItem("queries") ? Object.values(JSON.parse(localStorage.getItem("queries"))) : [];
 
 
