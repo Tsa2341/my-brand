@@ -1,5 +1,5 @@
 
-window.add = ()=>{
+window.onload = ()=>{
 
     const postEl = document.getElementById('post');
     const titleEl = document.getElementById('title');
@@ -14,7 +14,6 @@ window.add = ()=>{
     const backArrowEl = document.getElementById('back-arrow');
 
     let customButtonFile = null;
-    let textarea = tinymce.get('textarea');
 
     //    if it is updating blog pass the previous data into their fields
     
@@ -31,7 +30,7 @@ window.add = ()=>{
     for (let i = 0; i < blogs.length; i++){
         if (blogs[i].title === currentBlog) {
             titleEl.value = blogs[i].title;
-            textarea.setContent(blogs[i].description);
+            descriptionEl.value = blogs[i].description;
             imagePreview.setAttribute('src', blogs[i].image);
             customButtonFile = blogs[i].image;
             break;
@@ -39,13 +38,6 @@ window.add = ()=>{
             newBlogs.push(blogs[i]);
         }
     } 
-
-    // if (newBlog !== []) {
-    //     localStorage.setItem('blogs', JSON.stringify({
-    //         ...newBlog
-    //     }))
-    //     console.log(newBlog)
-    // }
 
 
 
@@ -104,7 +96,7 @@ window.add = ()=>{
                 )
             ;
                 
-        (textarea.getContent() === '') ?
+        (descriptionEl.value === '') ?
             (
                 descriptionError.classList.add('error'),
                 descriptionError.textContent = "Description is required"
@@ -144,14 +136,14 @@ window.add = ()=>{
             localStorage.setItem('blogs', JSON.stringify({
                 ...[
                     ...newBlogs,
-                    { title : titleEl.value , description : textarea.getContent(), image : imagePreview.src }
+                    { title : titleEl.value , description : descriptionEl.value, image : imagePreview.src }
                 ]
             }))
         } else {
             localStorage.setItem('blogs', JSON.stringify({
             ...[
                 ...prevBlogs,
-                { title : titleEl.value , description : textarea.getContent(), image : imagePreview.src }
+                { title : titleEl.value , description : descriptionEl.value, image : imagePreview.src }
             ]
         }))
         }
@@ -185,6 +177,7 @@ window.add = ()=>{
     })
 
     postEl.addEventListener('click', (e) => {
+        console.log("clicked")
         postValidator()
         if (titleError.textContent === '' && descriptionError.textContent === "" && imageError.textContent === "") {
             postBlog();

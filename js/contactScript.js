@@ -5,6 +5,7 @@ const emailEl = document.getElementById('email')
 const descriptionEl = document.getElementById('description')
 const emailValidatorEl = document.getElementById('email-validator')
 const generalValidatorEl = document.getElementById('general-validator')
+const successEl = document.getElementById('success')
 const button = document.getElementById('button');
 
 //  create validating function and other functions
@@ -23,8 +24,7 @@ const contactEmailValidator = async () => {
     
 }
 
-const contactGeneralValidator = (func) => {
-
+const contactGeneralValidator = (func = ()=>{}) => {
     spaceValidator(nameEl.value, emailEl.value, descriptionEl.value) ?
         (
             generalValidatorEl.innerText = "",
@@ -53,6 +53,15 @@ const saveMessage = (name, email, description) => {
         ]
     }));
 
+    successEl.textContent = "sent successfully"
+    successEl.classList.add('success')
+    button.disabled = true;
+    setTimeout(() => {
+        successEl.textContent = ""
+        successEl.classList.remove('success')
+        button.disabled = false
+    }, 1500);
+
     console.log(JSON.parse(localStorage.getItem("queries")))
 }
 
@@ -60,6 +69,14 @@ const saveMessage = (name, email, description) => {
 
 emailEl.addEventListener('keyup', (e) => {
     contactEmailValidator();
+})
+
+nameEl.addEventListener('click', (e) => {
+    contactGeneralValidator();
+})
+
+descriptionEl.addEventListener('change', (e) => {
+    contactGeneralValidator();
 })
 
 button.addEventListener('click', (e) => {

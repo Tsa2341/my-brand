@@ -151,6 +151,11 @@ main img[ id = "back-arrow" ] {
   height: 58px;
 }
 
+main label {
+  font-size: 2.5rem;
+  margin: 20px;
+}
+
 main > h3 {
   text-align: center;
   font-weight: bold;
@@ -185,11 +190,12 @@ main input {
   justify-content: center;
   align-items: center;
   max-width: 452px;
-  min-height: 239px;
+  max-height: 452px;
+  background-size: cover;
   background: #c4c4c4;
   border-radius: 10px;
   margin: 0 20px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   color: black;
   font-weight: normal;
 }
@@ -215,6 +221,7 @@ main > div button {
 main > div :last-child {
   margin-left: 0;
 }
+
 
 
 /*  validation    */

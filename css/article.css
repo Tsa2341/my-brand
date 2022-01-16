@@ -146,7 +146,7 @@ main > div {
 
 main > div > img {
   position: relative;
-  max-height: 40vw;
+  max-height: 30vw;
   object-fit: cover;
   object-position: 50% 50%;
 }
