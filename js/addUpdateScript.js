@@ -33,7 +33,6 @@ window.onload = ()=>{
             descriptionEl.value = blogs[i].description;
             imagePreview.setAttribute('src', blogs[i].image);
             customButtonFile = blogs[i].image;
-            break;
         } else {
             newBlogs.push(blogs[i]);
         }
@@ -83,37 +82,44 @@ window.onload = ()=>{
         (imagePreview.src === window.location.href) ?
             (
                 imageError.classList.add('error'),
-                imageError.textContent = "Image is required"
+                imageError.textContent = "Image is required",
+                postEl.style.border = "1px solid red"
             ) :
             (isImageValid(fileButton.files[0]) === true) ?
                 (
                     imageError.classList.remove('error'),
-                    imageError.textContent = ""
+                    imageError.textContent = "",
+                    postEl.style.border = "none"
                 ) :
                 (
                     imageError.classList.add('error'),
-                    imageError.textContent = isImageValid(fileButton.files[0])
+                    imageError.textContent = isImageValid(fileButton.files[0]),
+                    postEl.style.border = "1px solid red"
                 )
             ;
                 
         (descriptionEl.value === '') ?
             (
                 descriptionError.classList.add('error'),
-                descriptionError.textContent = "Description is required"
+                descriptionError.textContent = "Description is required",
+                postEl.style.border = "1px solid red"
             ) :
             (
                 descriptionError.classList.remove('error'),
-                descriptionError.textContent = ""
+                descriptionError.textContent = "",
+                postEl.style.border = "none"
             );
                     
         (titleEl.value === '') ?
             (
                 titleError.classList.add('error'),
-                titleError.textContent = "Title is required"
+                titleError.textContent = "Title is required",
+                postEl.style.border = "1px solid red"
             ) :
             (
                 titleError.classList.remove('error'),
-                titleError.textContent = ""
+                titleError.textContent = "",
+                postEl.style.border = "none"
             );
     }
 
@@ -127,7 +133,8 @@ window.onload = ()=>{
         for (let i = 0; i < prevBlogs.length; i++){
             if (prevBlogs[i].title !== currentBlog &&  prevBlogs[i].title === titleEl.value.trim()) {
                 titleError.classList.add('error'),
-                titleError.textContent = ` Blog title exist, \n Please Enter another title`
+                    titleError.textContent = ` Blog title exist, \n Please Enter another title`
+                    postEl.style.border = "1px solid red"
                 return;
             }
         }
@@ -154,6 +161,7 @@ window.onload = ()=>{
         successEl.textContent = 'Saved blog successfully';
         successEl.classList.add('success');
         postEl.disabled = true;
+        postEl.style.border = "none"
 
         setTimeout(() => {
             successEl.textContent = '';
