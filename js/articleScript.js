@@ -8,6 +8,10 @@ const saveCommentEl = document.getElementById('save-comment');
 const textareaEl = document.getElementById('textarea');
 const commentWrapperEl = document.getElementById('comment-wrapper');
 const generalError = document.getElementById('general-error');
+const likeBtn = document.getElementById('like-btn');
+const disLikeBtn = document.getElementById('dislike-btn');
+const likeNum = document.getElementById('like-num');
+const disLikeNum = document.getElementById('dislike-num');
 
 saveCommentEl.disabled = false;
 document.body.scrollTop = -1;
@@ -23,6 +27,8 @@ for (let i = 0; i < blogs.length; i++){
         titleEl.textContent = blogs[i].title;
         descriptionEl.innerHTML = blogs[i].description;
         imageEl.setAttribute('src', blogs[i].image);
+        likeNum.textContent = (blogs[i].likes) ? blogs[i].likes : 0;
+        disLikeNum.textContent = (blogs[i].dislikes) ? blogs[i].dislikes : 0;
         currentBlogIndex = i;
 
         let comments = blogs[i].comments ? Object.values(blogs[i].comments) : [];
@@ -48,6 +54,30 @@ for (let i = 0; i < blogs.length; i++){
 
 backArrow.addEventListener('click', (e) => {
     window.history.back()
+})
+
+likeBtn.addEventListener('click', (e) => {
+    likeNum.textContent++;
+
+    const newBlogs = [...blogs]
+    const updatedBlog = newBlogs[currentBlogIndex];
+    updatedBlog.likes = likeNum.textContent;
+
+    localStorage.setItem("blogs", JSON.stringify({
+        ...newBlogs
+    }));
+})
+
+disLikeBtn.addEventListener('click', (e) => {
+    disLikeNum.textContent++;
+
+    const newBlogs = [...blogs]
+    const updatedBlog = newBlogs[currentBlogIndex];
+    updatedBlog.dislikes = disLikeNum.textContent;
+
+    localStorage.setItem("blogs", JSON.stringify({
+        ...newBlogs
+    }));
 })
 
 saveCommentEl.addEventListener('click', (e) => {

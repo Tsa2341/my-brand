@@ -45,12 +45,13 @@ for (let i = 0; i < titleEls.length; i++) {
     })
 
     deleteEls[i].addEventListener('click', (e) => {
-        const newBlogs = [...blogs];
-        delete newBlogs.splice(i,1);
-        console.log(newBlogs);
-        localStorage.setItem('blogs', JSON.stringify({ ...newBlogs }));
-        window.location.reload();
-        console.log("delete ",i)
+        if (confirm("Do you wish to delete this blog?")) {
+            const newBlogs = [...blogs];
+            delete newBlogs.splice(i,1);
+            console.log(newBlogs);
+            localStorage.setItem('blogs', JSON.stringify({ ...newBlogs }));
+            window.location.reload();
+        }
     })
 }
 

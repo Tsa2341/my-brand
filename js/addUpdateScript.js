@@ -1,5 +1,5 @@
 
-window.onload = ()=>{
+window.onload = () => {
 
     const postEl = document.getElementById('post');
     const titleEl = document.getElementById('title');
@@ -13,30 +13,31 @@ window.onload = ()=>{
     const descriptionEl = document.getElementById('textarea');
     const backArrowEl = document.getElementById('back-arrow');
 
-    let customButtonFile = null;
+    
 
     //    if it is updating blog pass the previous data into their fields
     
 
     const blogs = localStorage.getItem('blogs') ? Object.values(JSON.parse(localStorage.getItem('blogs'))) : [];
-    const newBlogs = [];
+    let customButtonFile = null;  /// checkes if their is an incoming image
+    var currentBlogIndex = undefined;  /// store the index of the current blog we are updating if any
     const currentBlog = localStorage.getItem('current-blog');
 
-    const tiny = (editor) =>
-    {
-        console.log("hello")
-    }
 
-    for (let i = 0; i < blogs.length; i++){
+
+
+    for (let i = 0; i < blogs.length; i++) {
         if (blogs[i].title === currentBlog) {
             titleEl.value = blogs[i].title;
             descriptionEl.value = blogs[i].description;
             imagePreview.setAttribute('src', blogs[i].image);
             customButtonFile = blogs[i].image;
-        } else {
-            newBlogs.push(blogs[i]);
+            currentBlogIndex = i;
         }
-    } 
+        // else {
+        //     newBlogs.push(blogs[i]);
+        // }
+    }
 
 
 
@@ -87,11 +88,13 @@ window.onload = ()=>{
             ) :
             (isImageValid(fileButton.files[0]) === true) ?
                 (
+                    console.log(fileButton.files[0]),
                     imageError.classList.remove('error'),
                     imageError.textContent = "",
                     postEl.style.border = "none"
                 ) :
                 (
+                    console.log(fileButton.files[0]),
                     imageError.classList.add('error'),
                     imageError.textContent = isImageValid(fileButton.files[0]),
                     postEl.style.border = "1px solid red"
@@ -129,32 +132,39 @@ window.onload = ()=>{
         const prevBlogs = localStorage.getItem('blogs') ? Object.values(JSON.parse(localStorage.getItem('blogs'))) : [];
 
 
+
         //  check if the tittle specified already exists
-        for (let i = 0; i < prevBlogs.length; i++){
-            if (prevBlogs[i].title !== currentBlog &&  prevBlogs[i].title === titleEl.value.trim()) {
+        for (let i = 0; i < prevBlogs.length; i++) {
+            if (prevBlogs[i].title !== currentBlog && prevBlogs[i].title === titleEl.value.trim()) {
                 titleError.classList.add('error'),
                     titleError.textContent = ` Blog title exist, \n Please Enter another title`
-                    postEl.style.border = "1px solid red"
+                postEl.style.border = "1px solid red"
                 return;
             }
         }
 
         if (currentBlog) {
-            localStorage.setItem('blogs', JSON.stringify({
-                ...[
-                    ...newBlogs,
-                    { title : titleEl.value , description : descriptionEl.value, image : imagePreview.src }
-                ]
-            }))
+            const updatedBlog = prevBlogs[currentBlogIndex];
+
+            updatedBlog.title = titleEl.value;
+            updatedBlog.description = descriptionEl.value;
+            updatedBlog.image = imagePreview.src;
+
+            localStorage.setItem('blogs', JSON.stringify({ ...prevBlogs }))
+            // localStorage.setItem('blogs', JSON.stringify({
+            //         ...[
+            //             ...newBlogs,
+            //             { title : titleEl.value , description : descriptionEl.value, image : imagePreview.src }
+            //         ]
+            //     }))
         } else {
             localStorage.setItem('blogs', JSON.stringify({
-            ...[
-                ...prevBlogs,
-                { title : titleEl.value , description : descriptionEl.value, image : imagePreview.src }
-            ]
-        }))
+                ...[
+                    ...prevBlogs,
+                    { title: titleEl.value, description: descriptionEl.value, image: imagePreview.src }
+                ]
+            }))
         }
-
 
         
 
@@ -167,7 +177,11 @@ window.onload = ()=>{
             successEl.textContent = '';
             successEl.classList.remove('success');
             postEl.disabled = false;
-        }, 2000);
+            if (confirm("Do you wish to be redirected to dashboard")) {
+                history.back();
+            }
+
+        }, 1000);
     }
 
 
@@ -185,44 +199,17 @@ window.onload = ()=>{
     })
 
     postEl.addEventListener('click', (e) => {
+        postValidator()
+        if (titleError.textContent === '' && descriptionError.textContent === "" && imageError.textContent === "") {
+            postBlog();
+        }
+    })
+
+    backArrowEl.addEventListener('click', (e) => {
+        window.history.back();
         console.log("clicked")
-        postValidator()
-        if (titleError.textContent === '' && descriptionError.textContent === "" && imageError.textContent === "") {
-            postBlog();
-        }
     })
 
-    backArrowEl.addEventListener('click', (e) => {
-        window.history.back();
-    })
-
-}
-
-
-//   remove all eventlisteners
-
-
-window.onbeforeunload = () => {
-    fileButton.addEventListener('change', () => {
-        getImageUrl().then((data) => {
-            imagePreview.setAttribute('src', data);
-            postValidator();
-        }).catch((data) => {
-            console.log(error);
-            postValidator();
-        });
-    })
-
-    postEl.addEventListener('click', (e) => {
-        postValidator()
-        if (titleError.textContent === '' && descriptionError.textContent === "" && imageError.textContent === "") {
-            postBlog();
-        }
-    })
-
-    backArrowEl.addEventListener('click', (e) => {
-        window.history.back();
-    })
 }
 
 
