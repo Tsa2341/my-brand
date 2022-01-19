@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="./css/dashboard-queries.css" />
     <title>Dashboard</title>
     <script>
-        if (!localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).isLoggedIn !== true) {
-            window.location.assign('../signin.html');
-        }
+        if (localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).isLoggedIn === true) {
+
+        } else window.location.assign('../signin.html');
     </script>
 </head>
 
@@ -71,18 +71,9 @@
                 <h4>Blogs</h4>
                 <div class="line-w"></div>
             </div>
-            <div class="query-container">
-                <h1 class="query-name">alan</h1>
-                <h2 class="query-email">Email</h2>
-                <div class="query-description">
-                    Lörem ipsum hypoligt dos liksom miskapet. Deska apona. Pevis ontoskop medan nyrenas är sagisk telenal. Krofären befälingar pasesk.
-
-                    Eure mis trilig därför att tis doskap, trek såväl som järosa. Kvasigen dens potir, rest eftersom exosevigisk rerade. In dekakyskap stenorade makronat remide av polyn. Polyr ultravisade nyra, pon medan tylogi.
-                </div>
-            </div>
         </div>
     </main>
-    <script type="module" defer src="./js/dashboardQueriesScript.js"></script>
+    <script type="module" async src="./js/dashboardQueriesScript.js"></script>
 </body>
 
 </html>
