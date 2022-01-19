@@ -8,9 +8,11 @@ const blogEls = document.getElementsByClassName('blog')
 
 const blogs = localStorage.getItem('blogs') ? Object.values(JSON.parse(localStorage.getItem('blogs'))) : [];
 
-blogs.map((blog) => {
+blogs.map((blog,index) => {
 
-    const div = document.createElement('div');
+    const div1 = document.createElement('div');
+    const div2 = document.createElement('div');
+
 
     const blogEl = `
                 <a href="#" class="blog">
@@ -19,9 +21,12 @@ blogs.map((blog) => {
                 </a>
             `
 
-    div.innerHTML = blogEl;
-    blogsEl1.appendChild(div);
-    blogsEl2.appendChild(div);
+    div1.innerHTML = blogEl;
+    div2.innerHTML = blogEl;
+    if (index < 3) {
+        blogsEl1.appendChild(div1);
+    }
+    blogsEl2.appendChild(div2);
 })
 
 
