@@ -1,5 +1,5 @@
 
-window.onload = () => {
+// window.onload = () => {
 
     const postEl = document.getElementById('post');
     const titleEl = document.getElementById('title');
@@ -208,6 +208,6 @@ window.onload = () => {
         window.history.back();
     })
 
-}
+// }
 
 
