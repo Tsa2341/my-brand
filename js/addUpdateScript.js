@@ -88,13 +88,11 @@ window.onload = () => {
             ) :
             (isImageValid(fileButton.files[0]) === true) ?
                 (
-                    console.log(fileButton.files[0]),
                     imageError.classList.remove('error'),
                     imageError.textContent = "",
                     postEl.style.border = "none"
                 ) :
                 (
-                    console.log(fileButton.files[0]),
                     imageError.classList.add('error'),
                     imageError.textContent = isImageValid(fileButton.files[0]),
                     postEl.style.border = "1px solid red"
@@ -189,7 +187,8 @@ window.onload = () => {
 
 
     fileButton.addEventListener('change', () => {
-        getImageUrl().then((data) => {
+        getImageUrl()
+            .then((data) => {
             imagePreview.setAttribute('src', data);
             postValidator();
         }).catch((data) => {
@@ -207,7 +206,6 @@ window.onload = () => {
 
     backArrowEl.addEventListener('click', (e) => {
         window.history.back();
-        console.log("clicked")
     })
 
 }

@@ -70,7 +70,6 @@ const userValidator = (func3 = () => { }) => {
             }
 
             if (user.password !== passwordInput.value) {
-                console.log("what the hell")
                 passwordValidatorEl.innerText = "user password not correct \n re-enter last used";
                 passwordValidatorEl.classList.add('password-validator');
                 button.disabled = true;
@@ -102,8 +101,6 @@ button.addEventListener('click', (e) => {
     // userValidator(() => signinPasswordValidator(signinEmailValidator()));
 
     if (emailInput.value !== '' && passwordInput.value !== "") {
-        console.log(passwordInput.value)
-        // userValidator(() => signinPasswordValidator(signinEmailValidator()));
         userValidator();
     } else {
         signinEmailValidator()
@@ -111,26 +108,4 @@ button.addEventListener('click', (e) => {
     }
     
 })
-    
-    
 
-//  removes all eventlisteners on elements
-
-
-window.onbeforeunload = (e) => {
-    emailInput.addEventListener('keyup', (e) => {
-        signinEmailValidator();
-    })
-    
-    
-    passwordInput.addEventListener('keyup', (e) => {
-        signinPasswordValidator();
-    })
-    
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-    
-        
-        
-    })
-}

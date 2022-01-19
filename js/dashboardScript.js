@@ -48,7 +48,6 @@ for (let i = 0; i < titleEls.length; i++) {
         if (confirm("Do you wish to delete this blog?")) {
             const newBlogs = [...blogs];
             delete newBlogs.splice(i,1);
-            console.log(newBlogs);
             localStorage.setItem('blogs', JSON.stringify({ ...newBlogs }));
             window.location.reload();
         }
@@ -65,21 +64,6 @@ logoutEl.addEventListener('click', (e) => {
     let user = JSON.parse(localStorage.getItem('user'));
     user.isLoggedIn = false;
 
-    console.log(user);
 
     localStorage.setItem('user', JSON.stringify(user));
 })
-
-//  removes all eventlistener
-
-window.onbeforeunload = () => {
-    logoutEl.removeEventListener('click', (e) => {
-
-        let user = JSON.parse(localStorage.getItem('user'));
-        user.isLoggedIn = false;
-    
-        console.log(user);
-    
-        localStorage.setItem('user', JSON.stringify(user));
-    })
-}
