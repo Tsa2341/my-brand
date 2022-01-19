@@ -1,5 +1,5 @@
 
-window.onload = () => {
+// window.onload = () => {
     ulEl = document.getElementsByTagName('ul')
 
     const li = document.createElement('li')
@@ -21,4 +21,4 @@ window.onload = () => {
     console.log(ulEl[0], li)
 
     ulEl[0].prepend(li);
-}
+// }
