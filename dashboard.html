@@ -10,7 +10,7 @@
   <script>
     if (localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).isLoggedIn === true) {
 
-    } else window.location.assign('../signin.html');
+    } else window.location.replace('./signin.html');
   </script>
 </head>
 
@@ -21,23 +21,24 @@
   <nav>
     <a href="./index.html">Home</a>
     <ul>
-      <li><a href="./signin.html">Signin</a></li>
       <li><a href="./about.html">About</a></li>
       <li><a href="./projects.html">Projects</a></li>
       <li><a href="./contact.html">Contact</a></li>
       <li><a href="./blog.html">Blog</a></li>
     </ul>
   </nav>
-
+  <script async src="./js/modules/navbarValidator.js"></script>
   <!--     main page      -->
 
   <main>
     <aside>
+
       <section>
         <h3>Alan's dashboard</h3>
         <img src="./public/Group 5 profile img.svg" alt="profile image">
       </section>
       <section>
+
         <div>
           <img src="./public/gmail.svg" alt="gmail icon">
           <p>alanshema2002@gmail.com</p>
@@ -66,91 +67,22 @@
       </section>
     </aside>
 
-    <div class="body">
+    <div class="body" id="body">
       <div class="title">
         <h4>Blogs</h4>
         <div class="line-w"></div>
       </div>
-      <div class="blog-box">
-        <div>
-          <p>BLog1</p>
-        </div>
-        <a href="./add-update.html">
-          <img src="./public/edit icon.svg" alt="edit icon">
-        </a>
-        <img src="./public/bin.svg" alt="delete icon">
-      </div>
-      <div class="blog-box">
-        <div>
-          <p>BLog1</p>
-        </div>
-        <a href="./add-update.html">
-          <img src="./public/edit icon.svg" alt="edit icon">
-        </a>
-        <img src="./public/bin.svg" alt="delete icon">
-      </div>
-      <div class="blog-box">
-        <div>
-          <p>BLog1</p>
-        </div>
-        <a href="./add-update.html">
-          <img src="./public/edit icon.svg" alt="edit icon">
-        </a>
-        <img src="./public/bin.svg" alt="delete icon">
-      </div>
-      <div class="blog-box">
-        <div>
-          <p>BLog2</p>
-        </div>
-        <a href="./add-update.html">
-          <img src="./public/edit icon.svg" alt="edit icon">
-        </a>
-        <img src="./public/bin.svg" alt="delete icon">
-      </div>
-      <div class="blog-box">
-        <div>
-          <p>BLog3</p>
-        </div>
-        <a href="./add-update.html">
-          <img src="./public/edit icon.svg" alt="edit icon">
-        </a>
-        <img src="./public/bin.svg" alt="delete icon">
-      </div>
-      <div class="blog-box">
-        <div>
-          <p>BLog4</p>
-        </div>
-        <a href="./add-update.html">
-          <img src="./public/edit icon.svg" alt="edit icon">
-        </a>
-        <img src="./public/bin.svg" alt="delete icon">
-      </div>
-      <div class="blog-box">
-        <div>
-          <p>BLog5</p>
-        </div>
-        <a href="./add-update.html">
-          <img src="./public/edit icon.svg" alt="edit icon">
-        </a>
-        <img src="./public/bin.svg" alt="delete icon">
-      </div>
-      <div class="blog-box">
-        <div>
-          <p>BLog6</p>
-        </div>
-        <a href="./add-update.html">
-          <img src="./public/edit icon.svg" alt="edit icon">
-        </a>
-        <img src="./public/bin.svg" alt="delete icon">
-      </div>
+      <div id="blog-container"></div>
+
       <div class="add-button">
-        <a href="./add-update.html">
-          <img src="./public/add button.svg" alt="add button">
-        </a>
+        <!-- <a href="./add-update.html"> -->
+        <img id="add-button" src="./public/add button.svg" alt="add button">
+        <!-- </a> -->
       </div>
+
     </div>
   </main>
-  <script type="module" defer src="./js/dashboardScript.js"></script>
+  <script type="module" async src="./js/dashboardScript.js"></script>
 </body>
 
 </html>

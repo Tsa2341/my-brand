@@ -17,62 +17,49 @@
         <nav>
             <a href="./index.html">Home</a>
             <ul>
-                <li><a href="./signin.html">Signin</a></li>
                 <li><a href="./about.html">About</a></li>
                 <li><a href="./projects.html">Projects</a></li>
                 <li><a href="./contact.html">Contact</a></li>
                 <li><a href="./blog.html">Blog</a></li>
             </ul>
         </nav>
-
+        <script async src="./js/modules/navbarValidator.js"></script>
         <!--    main section      -->
 
         <main>
             <div>
-                <img src="./public/article1.svg" alt="article icon">
-                <a href="./blog.html">
-                    <img src="./public/back arrow.svg" class="back-arrow">
-                </a>
-                <h1><strong>New Blog 1</strong></h1>
+                <img id="image" class="header-image" src="./public/article1.svg" alt="article icon">
+                <!-- <a href="./blog.html"> -->
+                <img id="back-arrow" src="./public/back arrow.svg" class="back-arrow">
+                <!-- </a> -->
+                <h1><strong id="title">New Blog 1</strong></h1>
             </div>
-            <p>
+            <p id="description">
                 Lörem ipsum on monominat retår hexagösm presm, maläs och spelig är enveckasförsvar prevare makrortad.
-                Bloggare zebralagen, om depong, för att sperat, ryggplankning: hypol pseudonas kroll, tydel såväl som
-                krongen, det sulyl. Kången opp, i dirade. Tejånel blåljuspersonal jatisas, tiplaktig emedan mivis
-                sädinat jänas. Savörtad vönat Dylanman förutom oteligt nepeligen att sora och diasm om pseudofoni
-                makrojysade därför att pös. Chippa sasoren ähyssade: sen lins, inte babybio VAR, diligt teng. Autos
-                givomat lyv lask translogi såsom soldusch multis. Geogose lipenar har logotris och miprende. Monoheten
-                astroskapet. Lålåra ona av bere nysar. Sarade stenon puhöhet tetrade: usm tedosade visanat benera fast
-                kontradat. <br /><br />
-
-                Nitåv curla kår. Osat mikronism nins tempogam: i jad miviv för nyrat benera: ys. Kulturkofta fadys
-                tidäktigt begt men terest supraktiga, jogösa. Polytris hynajaktig gigavar i paratotal. Madäpp divir
-                subelt än megagev antisk ultrasack uvis krott. Yska hödade gonnabe, olingar lerade, i autonesa gigamegen
-                plande. Äl tårade terangen, ben segon homosade aktiga mör den dede. Hyr makrohyvis alltså laplaning
-                prehenat telig, speska tetraliga, lårskav chippa jyligen fahör. Saviling heteror för att faged, ilig.
-                Episkop raputenade, tissa prologi och reakångar vidär. Jarer därtad, hypokanera dodynas, emedan ortad
-                med pöngen: antitren i dekabeledes nende dism. Du kan vara drabbad.
             </p>
+            <div class="like-or-dislike-container">
+                <img src="./public/like btn.svg" class="like-or-dislike" id="like-btn" alt="like button">
+                <h3 id="like-num">0</h3>
+
+                <img src="./public/dislike btn.svg" class="like-or-dislike" id="dislike-btn" alt="dislike button">
+                <h3 id="dislike-num">0</h3>
+            </div>
             <h3>Comments</h3>
             <div class="line-w"></div>
-            <div class="comment-wrapper">
-                <input type="text" name="input">
-                <div class="comment">
-                    <h4>
-                        Lörem ipsum mäfärat stenodeling intraligt såsom vura homor ifall bev ore nining förutom realiga.
-                        Bihaligt por autod i nåsamma. Ypp homoskap gäsade kvasistat.
-                    </h4>
-                </div>
-                <div class="comment">
-                    <h4>
-                        Lörem ipsum mäfärat stenodeling intraligt såsom vura homor ifall bev ore nining förutom realiga.
-                        Bihaligt por autod i nåsamma. Ypp homoskap gäsade kvasistat.
-                    </h4>
-                </div>
+            <div class="comment-wrapper" id="comment-wrapper">
+                <form method="post">
+                    <textarea name="textarea" id="textarea"></textarea>
+                    <!-- <div class="button-wrapper"> -->
+                    <button id="save-comment">Send</button>
+                    <!-- </div> -->
+                </form>
+                <div id="general-error"></div>
+
+                <div class="comment"></div>
             </div>
         </main>
-
     </div>
+    <script type="module" async src="./js/articleScript.js"></script>
 </body>
 
 </html>

@@ -12,16 +12,13 @@ const button = document.getElementById('button')
 
 
 const signinEmailValidator = (func1 = () => { }) => {
-    console.log("email = ",emailInput.value)
     emailValidator(emailInput.value)
         .then((msg) => {
-            console.log("email then")
             emailValidatorEl.innerText = msg;
             emailValidatorEl.classList.remove('email-validator');
             button.disabled = false;
             func1();
         }).catch((msg) => {
-            console.log("email catch")
             emailValidatorEl.innerText = msg;
             emailValidatorEl.classList.add('email-validator');
             button.disabled = true;
@@ -30,16 +27,13 @@ const signinEmailValidator = (func1 = () => { }) => {
 }
 
 const signinPasswordValidator = (func2 = () => { }) => {
-    console.log("password = ",passwordInput.value)
     passwordValidator(passwordInput.value)
         .then((msg) => {
-            console.log("password then")
             passwordValidatorEl.innerText = msg;
             passwordValidatorEl.classList.remove('password-validator');
             button.disabled = false;
             func2();
         }).catch((msg) => {
-            console.log("password catch")
             passwordValidatorEl.innerText = msg;
             passwordValidatorEl.classList.add('password-validator');
             button.disabled = true;
@@ -76,7 +70,6 @@ const userValidator = (func3 = () => { }) => {
             }
 
             if (user.password !== passwordInput.value) {
-                console.log("what the hell")
                 passwordValidatorEl.innerText = "user password not correct \n re-enter last used";
                 passwordValidatorEl.classList.add('password-validator');
                 button.disabled = true;
@@ -104,32 +97,15 @@ passwordInput.addEventListener('keyup', (e) => {
 
 button.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log(JSON.parse(localStorage.getItem('user')));
 
-    userValidator(() => signinPasswordValidator(signinEmailValidator()));
+    // userValidator(() => signinPasswordValidator(signinEmailValidator()));
+
+    if (emailInput.value !== '' && passwordInput.value !== "") {
+        userValidator();
+    } else {
+        signinEmailValidator()
+        signinPasswordValidator()
+    }
     
 })
-    
-    
 
-//  removes all eventlisteners on elements
-
-
-window.onbeforeunload = (e) => {
-    emailInput.addEventListener('keyup', (e) => {
-        signinEmailValidator();
-    })
-    
-    
-    passwordInput.addEventListener('keyup', (e) => {
-        signinPasswordValidator();
-    })
-    
-    button.addEventListener('click', (e) => {
-        e.preventDefault();
-        console.log(JSON.parse(localStorage.getItem('user')));
-    
-        userValidator(() => signinPasswordValidator(signinEmailValidator()));
-        
-    })
-}

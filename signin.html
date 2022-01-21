@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+    <script>
+        const userScript = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+        if (userScript && userScript.isLoggedIn === true) {
+            window.location.replace('./dashboard.html');
+        }
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,14 +22,13 @@
     <nav>
         <p><a href="./index.html">Home</a></p>
         <ul>
-            <li><a href="./signin.html">Signin</a></li>
             <li><a href="./about.html">About</a></li>
             <li><a href="./projects.html">Projects</a></li>
             <li><a href="./contact.html">Contact</a></li>
             <li><a href="./blog.html">Blog</a></li>
         </ul>
     </nav>
-
+    <script async src="./js/modules/navbarValidator.js"></script>
     <!--   main   -->
 
     <main>
@@ -49,7 +54,7 @@
         </form>
 
     </main>
-    <script type="module" defer src="./js/signinScript.js" ></script>
+    <script type="module" async src="./js/signinScript.js"></script>
 </body>
 
 </html>

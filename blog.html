@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./css/blog.css" />
     <title>Blog</title>
 </head>
+
 <body>
     <div class="container">
 
@@ -15,69 +17,35 @@
         <nav>
             <a href="./index.html">Home</a>
             <ul>
-                <li><a href="./signin.html" >Signin</a></li>
                 <li><a href="./about.html">About</a></li>
                 <li><a href="./projects.html">Projects</a></li>
                 <li><a href="./contact.html">Contact</a></li>
                 <li><a href="./blog.html">Blog</a></li>
             </ul>
         </nav>
-    
+        <script async src="./js/modules/navbarValidator.js"></script>
+
+        <!--    main section    -->
         <main>
             <h1><strong>Blogs</strong></h1>
             <div class="top1">
                 <h1>Top</h1>
                 <div class="line-w"></div>
             </div>
-            <div class="blogs1">
-                <div>
-                    <a href="./article.html">
-                        <img src="./public/blog1.svg" alt="first blog">
-                        <h4>New blog 1</h4>
-                    </a>
-                </div>
-                <div>
-                    <a href="./article.html">
-                        <img src="./public/blog2.svg" alt=" second blog">
-                        <h4>New blog 2</h4>
-                    </a>
-                </div>
-                <div>
-                    <a href="/article.html">
-                        <img src="./public/blog3.svg" alt=" third blog">
-                        <h4>New blog 3</h4>
-                    </a>
-                </div>
-            </div>
+            <div class="blogs1"></div>
+
             <div class="top2">
                 <h1>New</h1>
                 <div class="line-w"></div>
             </div>
-            <div class="blogs2">
-                <div>
-                    <a href="./article.html">
-                        <img src="./public/blog4.svg" alt="first blog">
-                        <h4>New blog 1</h4>
-                    </a>
-                </div>
-                <div>
-                    <a href="./article.html">
-                        <img src="./public/blog5.svg" alt=" second blog">
-                        <h4>New blog 2</h4>
-                    </a>
-                </div>
-                <div>
-                    <a href="./article.html">
-                        <img src="./public/blog6.svg" alt=" third blog">
-                        <h4>New blog 3</h4>
-                    </a>
-                </div>
-            </div>
-            <a href="./blog.html">
+            <div class="blogs2"></div>
+            <!-- <a href="./blog.html">
                 <img src="./public/click view button.svg" alt="click button">
-            </a>
+            </a> -->
         </main>
 
     </div>
+    <script type="module" async src="js/blogScript.js"></script>
 </body>
+
 </html>

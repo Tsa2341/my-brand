@@ -48,3 +48,11 @@
     text-align: left;
     display: static !important;
 }
+
+.query-date{
+    text-align: right;
+    color: #000000;
+}
+.query-location{
+    color: #000000;
+}

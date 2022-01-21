@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/contact.css"/>
+  <link rel="stylesheet" href="./css/contact.css" />
   <title>Contact</title>
 </head>
 
@@ -16,16 +16,14 @@
   <nav>
     <a href="./index.html">Home</a>
     <ul>
-      <li><a href="./signin.html">Signin</a></li>
       <li><a href="./about.html">About</a></li>
       <li><a href="./projects.html">Projects</a></li>
       <li><a href="./contact.html">Contact</a></li>
       <li><a href="./blog.html">Blog</a></li>
     </ul>
   </nav>
-
+  <script async src="./js/modules/navbarValidator.js"></script>
   <!--     main section      -->
-  
   <main>
     <h3>Let me know what's in your mind</h3>
     <div class="line-w"></div>
@@ -41,10 +39,12 @@
       <textarea name="textarea" id="description"></textarea>
 
       <div id="general-validator"></div>
+      <div id="success"></div>
       <button id="button">Send</button>
     </div>
   </main>
 
-  <script type="module" defer src="./js/contactScript.js" ></script>
+  <script type="module" async src="./js/contactScript.js"></script>
 </body>
+
 </html>

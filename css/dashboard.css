@@ -66,7 +66,6 @@ p {
   line-height: 1.125rem;
   margin: 10px 0;
   font-weight: normal;
-
 }
 
 a {
@@ -217,7 +216,7 @@ main aside .aside-card * {
     grid-template-columns: auto;
   }
 
-  main aside h3 {klG
+  main aside h3 {
     font-size: 2.25rem;
     font-weight: bold;
   }
@@ -266,11 +265,13 @@ main aside .aside-card * {
   margin-right: 2%;
   background: #000000;
   border-radius: 5px;
+  align-items: center;
 }
 
 .body .blog-box div p {
   margin: auto 0 auto 2vw;
-  text-align: center;
+  cursor: pointer;
+  /* text-align: center; */
 }
 
 .body .blog-box img {

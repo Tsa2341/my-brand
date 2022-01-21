@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/add-update.css"/>
+  <link rel="stylesheet" href="./css/add-update.css" />
   <title>Add or update</title>
 </head>
 
@@ -16,33 +16,44 @@
   <nav>
     <a href="./index.html">Home</a>
     <ul>
-      <li><a href="./signin.html">Signin</a></li>
       <li><a href="./about.html">About</a></li>
       <li><a href="./projects.html">Projects</a></li>
       <li><a href="./contact.html">Contact</a></li>
       <li><a href="./blog.html">Blog</a></li>
     </ul>
   </nav>
-
+  <script async src="./js/modules/navbarValidator.js"></script>
   <!--     main section      -->
 
   <main>
-
-    <a href="./dashboard.html" ><img src="./public/back arrow.svg" alt="back"></a>
+    <!-- <a href="./dashboard.html"> -->
+    <img src="./public/back arrow.svg" alt="back" id="back-arrow">
+    <!-- </a> -->
     <h3>Update new blog or Projects</h3>
     <div class="line-w"></div>
-    <input type="text" placeholder="Input your title">
-    <textarea name="textarea">
-      Lörem ipsum intimitetskoordinator agt. Sont epiform. Änat teling dekaben, radiodiktisk: tengar. Ted tigt polig ifall mick krol nysåre miska. Hypotedade bior, oaktat ludar. Angen dong oning. Elig repist. Treling nel soligt om rimirade heterona svenna sitt liv, och pregeligt tektig. Tel krisväska kyngen visyrärad gende. Irade metrosexualitet som ägisk nir i paltkoma och ar. Tetrarägisk euroledes för att ara att biodade din prokotta diask. 
-    </textarea>
-    <div class="image-preview">
-      <h3>Image Preview</h3>
-    </div>
+
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" placeholder="Input your title">
+    <div id="title-error"></div>
+
+    <label for="textarea">Description</label>
+    <textarea name="textarea" id="textarea"></textarea>
+    <div id="description-error"></div>
+
+
+    <label for="image">Preview image</label>
+    <img src='' alt="image-preview" class="image-preview" id="image-preview" />
+    <div id="image-error"></div>
+    <div id="general-success"></div>
+    <!-- <h3>Image Preview</h3>
+    </div> -->
     <div>
-      <button>Post</button>
+      <button id="post">Post</button>
       <input type="file" name="file" id="file" placeholder="Update the pic">
     </div>
-  </main>
 
+  </main>
+  <script type="module" async src="./js/addUpdateScript.js"></script>
 </body>
+
 </html>
