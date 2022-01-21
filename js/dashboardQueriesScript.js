@@ -10,7 +10,7 @@ let users = localStorage.getItem('queries') ? JSON.parse(localStorage.getItem('q
 
 if (users !== null) {
 
-    Object.values(users).map((user) => {
+    Object.values(users).map((user,i,arr) => {
         
         let queryContainerEl = document.createElement('div');
         let queryNameEl = document.createElement('h1');
@@ -26,12 +26,13 @@ if (users !== null) {
         queryDescriptionEl.setAttribute('class', 'query-description');
         queryLocation.setAttribute('class', 'query-location');
 
+        const lastUser = arr[arr.length - 1 - i]
 
-        queryNameEl.textContent = user.name;
-        queryEmailEl.textContent = user.email;
-        queryDescriptionEl.textContent = user.description;
-        queryDate.textContent = user.date;
-        queryLocation.textContent = user.location;
+        queryNameEl.textContent = lastUser.name;
+        queryEmailEl.textContent = lastUser.email;
+        queryDescriptionEl.textContent = lastUser.description;
+        queryDate.textContent = lastUser.date;
+        queryLocation.textContent = lastUser.location;
 
         queryContainerEl.appendChild(queryDate);
         queryContainerEl.appendChild(queryNameEl);

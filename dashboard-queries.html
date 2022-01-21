@@ -10,7 +10,7 @@
     <script>
         if (localStorage.getItem('user') && JSON.parse(localStorage.getItem('user')).isLoggedIn === true) {
 
-        } else window.location.assign('../signin.html');
+        } else window.location.replace('./signin.html');
     </script>
 </head>
 
