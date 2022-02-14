@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: auto;
+  max-width: 1440px;
+  margin: 0 auto;
+  background: #222733;
+  font-family: 'poppins', sans-serif;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 4rem;
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 3rem;
+  line-height: 3rem;
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 2.25rem;
+  line-height: 2.25rem;
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+h5 {
+  font-size: 1.125rem;
+  line-height: 1.125rem;
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+h6 {
+  font-size: 1rem;
+  line-height: 1.125rem;
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+p {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  margin: 10px 0;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.125rem;
+  font-weight: normal;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* .container {
+  max-width: 1366px;
+  padding: 56px 7%;
+  height: auto;
+} */
+
+input, textarea{
+  transition: all 0.1s ease-out;
+}
+
+input:hover, textarea:hover, button:hover {
+  transform: translateX(-5px);
+  box-shadow: 5px 5px 2px blue;
+}
+
+input:focus, textarea:focus {
+  transform: translateX(-5px);
+  box-shadow: 5px 5px 2px blue;
+  border: 2px solid rgb(85, 85, 230, 0.7);
+}
+
+button:active {
+  transform: scale(1.03);
+  box-shadow: none;
+}
+
+button:disabled{
+  cursor: not-allowed;
+  background-color: rgb(145, 159, 172);
+  transform: none;
+  box-shadow: none;
+}

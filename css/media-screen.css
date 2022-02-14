@@ -1,0 +1,43 @@
+
+@media screen and (max-width: 1024px) {
+  body,
+  html {
+    font-size: 97% !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body,
+  html {
+    font-size: 95% !important;
+  }
+}
+
+@media screen and (max-width: 714px) {
+  body,
+  html {
+    font-size: 90% !important;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  body,
+  html {
+    font-size: 85% !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  body,
+  html {
+    font-size: 67% !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  body,
+  html {
+    font-size: 60% !important;
+  }
+}
+

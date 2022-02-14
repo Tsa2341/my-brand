@@ -1,0 +1,73 @@
+/*    navigation bar     */
+
+nav {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  padding: 0 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 56px;
+  background: rgba(82, 94, 101, 1);
+  z-index: 100;
+}
+
+nav ul {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  width: auto;
+}
+
+nav ul li {
+  margin: 0 0 0 2vw;
+  position: relative;
+}
+
+nav > a {
+  position: relative;
+}
+
+nav ul li:hover a, nav > a:hover {
+  color: rgb(112, 112, 255);
+}
+
+@keyframes bar-width {
+  0% {
+    width: 0%;
+  }
+  
+  100% {
+    width: 50%;
+  }
+}
+
+nav ul li:hover a::before, nav > a:hover::before {
+  content: "";
+  animation: bar-width 0.2s cubic-bezier(0, 0, 0, 0.7);
+  position: absolute;
+  right: 50%;
+  bottom: 0;
+  display: block;
+  width: 50%;
+  height: 2px;
+  background-color: rgb(112, 112, 255);
+}
+
+nav ul li:hover a::after, nav > a:hover::after {
+  content: "";
+  animation: bar-width 0.2s cubic-bezier(0, 0, 0, 0.7);
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: block;
+  width: 50%;
+  height: 2px;
+  background-color: rgb(112, 112, 255);
+}
+
+
+
+

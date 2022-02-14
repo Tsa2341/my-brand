@@ -1,4 +1,39 @@
-@import url("./dashboard.css");
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;900&display=swap');
+@import url("./global.css");
+@import url("./navbar.css");
+@import url("./media-screen.css");
+@import url("./dashboard-aside.css");
+
+.line-w {
+  width: 150px;
+  margin: 0px auto 40px auto;
+  height: 10px;
+  border-radius: 10px;
+  background-color: #c4c4c4;
+}
+
+/*     main section     */
+
+main {
+  margin-top: 56px;
+  width: 100%;
+  max-width: 1366px;
+  min-height: calc(100vh - 56px);
+}
+
+@media screen and ( min-width: 768px) {
+    main{
+        padding-left: 300px;
+    }
+}
+
+/* body section */
+.title h4{
+    text-align: center;
+    padding-top: 20px;
+    font-weight: bold;
+}
 
 .query-container{
     display: flex;

@@ -1,126 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;900&display=swap');
-
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html,
-body {
-  height: auto;
-  background: #222733;
-  font-family: 'poppins', sans-serif;
-  color: #ffffff;
-  font-size: 16px;
-  line-height: 16px;
-  font-weight: normal;
-}
-
-h1 {
-  font-size: 4rem;
-  line-height: 4rem;
-  margin: 10px 0;
-  font-weight: normal;
-}
-
-h2 {
-  font-size: 3rem;
-  line-height: 3rem;
-  margin: 10px 0;
-  font-weight: normal;
-}
-
-h3 {
-  font-size: 2.25rem;
-  line-height: 2.25rem;
-  margin: 10px 0;
-  font-weight: normal;
-}
-
-h4 {
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  margin: 10px 0;
-  font-weight: normal;
-}
-
-h5 {
-  font-size: 1.125rem;
-  line-height: 1.125rem;
-  margin: 10px 0;
-  font-weight: normal;
-}
-
-h6 {
-  font-size: 1rem;
-  line-height: 1.125rem;
-  margin: 10px 0;
-  font-weight: normal;
-}
-
-p {
-  font-size: 0.875rem;
-  line-height: 1.125rem;
-  margin: 10px 0;
-  font-weight: normal;
-}
-
-a {
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 1rem;
-  line-height: 1.125rem;
-  font-weight: normal;
-}
-
-img {
-  max-width: 100%;
-}
-
-ul {
-  list-style-type: none;
-}
-
-input {
-  outline: none;
-  border: none;
-}
-
-.container {
-  max-width: 1366px;
-  padding: 56px 7%;
-  height: auto;
-}
-
-/*    navigation bar     */
-
-nav {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  padding: 0 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100vw;
-  height: 56px;
-  background: rgba(82, 94, 101, 1);
-  z-index: 100;
-}
-
-nav ul {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  width: auto;
-}
-
-nav ul li {
-  margin: 0 0 0 2vw;
-}
+@import url("./global.css");
+@import url("./navbar.css");
+@import url("./media-screen.css");
+@import url("./dashboard-aside.css");
 
 .line-w {
   width: 150px;
@@ -130,107 +13,21 @@ nav ul li {
   background-color: #c4c4c4;
 }
 
-@media screen and (max-width: 320px) {
-  nav {
-    padding: 0 3%;
-  }
-}
-
 /*     main section     */
 
 main {
   margin-top: 56px;
+  width: 100%;
   max-width: 1366px;
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 30% 70%;
-  grid-template-rows: auto;
+  min-height: calc(100vh - 56px);
 }
 
-/*      aside section     */
-
-main aside {
-  background: rgba(82, 94, 101, 1);
-  width: 100%;
-  height: max-content;
-  padding: 30px 0;
-}
-
-main aside section {
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-main aside > h3 {
-  font-weight: bold;
-}
-
-main aside h3 {
-  text-align: center;
-  margin: 2vw 0;
-  font-size: 2.5vw;
-  font-weight: bold;
-}
-
-main aside > section img {
-  width: 40%;
-  margin: 1vw 0 4vw 0;
-  align-self: center;
-}
-
-main aside div {
-  width: 80%;
-  margin: 5px auto;
-  display: flex;
-  align-items: center;
-}
-
-main aside div img {
-  width: 3vw;
-  margin: 0 1vw 0 0;
-}
-
-main aside div p {
-  font-size: 1.3vw;
-}
-
-main aside .aside-card {
-  width: 100%;
-  background: #222733;
-  border: 1px solid #465058;
-  box-sizing: border-box;
-  margin: 0;
-  margin-top: 2vw;
-  padding: 2vw 0;
-}
-
-main aside .aside-card * {
-  margin: auto;
-}
-
-@media screen and (max-width: 425px) {
-  main {
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: auto;
-  }
-
-  main aside h3 {
-    font-size: 2.25rem;
-    font-weight: bold;
-  }
-
-  main aside div img {
-    width: 30px;
-    margin: 0 1vw 0 0;
-  }
-
-  main aside div p {
-    font-size: 1.5rem;
-    margin-left: 10px;
+@media screen and ( min-width: 768px) {
+  main{
+    padding-left: 300px;
   }
 }
+
 
 /*    body section     */
 
@@ -245,6 +42,8 @@ main aside .aside-card * {
 
 .body .title h4 {
   text-align: center;
+  padding-top: 20px;
+  font-weight: bold;
 }
 
 .body .blog-box {
@@ -289,49 +88,5 @@ main aside .aside-card * {
   margin: 0 7vw 7vw 0;
 }
 
-@media screen and (max-width: 1024px) {
-  body,
-  html {
-    font-size: 97% !important;
-  }
-}
 
-@media screen and (max-width: 768px) {
-  body,
-  html {
-    font-size: 95% !important;
-  }
-}
 
-@media screen and (max-width: 714px) {
-  body,
-  html {
-    font-size: 90% !important;
-  }
-
-  main .titleBox {
-    width: 100%;
-    border-radius: 0px;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  body,
-  html {
-    font-size: 85% !important;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  body,
-  html {
-    font-size: 67% !important;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  body,
-  html {
-    font-size: 60% !important;
-  }
-}
