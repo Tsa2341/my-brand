@@ -7,7 +7,7 @@
 html,
 body {
   height: auto;
-  max-width: 1440px;
+  max-width: 1366px;
   margin: 0 auto;
   background: #222733;
   font-family: 'poppins', sans-serif;
@@ -15,6 +15,7 @@ body {
   font-size: 16px;
   line-height: 16px;
   font-weight: normal;
+  position: relative;
 }
 
 h1 {
@@ -89,6 +90,8 @@ input {
 
 button {
   cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* .container {
@@ -109,12 +112,11 @@ input:hover, textarea:hover, button:hover {
 input:focus, textarea:focus {
   transform: translateX(-5px);
   box-shadow: 5px 5px 2px blue;
-  border: 2px solid rgb(85, 85, 230, 0.7);
+  /* border: 2px solid rgb(85, 85, 230, 0.7); */
 }
 
 button:active {
   transform: scale(1.03);
-  box-shadow: none;
 }
 
 button:disabled{

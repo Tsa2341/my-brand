@@ -1,111 +1,77 @@
 import { emailValidator, passwordValidator } from "./modules/validators.js";
+import { login, register } from "./services/userServices.js";
 
+const usernameInput = document.getElementById("username");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const usernameValidatorEl = document.getElementById("username-validator");
+const emailValidatorEl = document.getElementById("email-validator");
+const passwordValidatorEl = document.getElementById("password-validator");
+const generalValidatorEl = document.getElementById("general-validator");
+const button = document.getElementById("button");
 
-const emailInput = document.getElementById('email')
-const passwordInput = document.getElementById('password')
-const emailValidatorEl = document.getElementById('email-validator')
-const passwordValidatorEl = document.getElementById('password-validator')
-const button = document.getElementById('button')
+const clearError = () => {
+  usernameValidatorEl.style.display = "none";
+  emailValidatorEl.style.display = "none";
+  passwordValidatorEl.style.display = "none";
+  generalValidatorEl.style.display = "none";
+};
 
+const signinScript = async () => {
+  button.addEventListener("click", async (e) => {
+    try {
+      e.preventDefault();
 
-//  validation function or other functions
+      clearError();
 
+      generalValidatorEl.classList.add("loading");
+      generalValidatorEl.textContent = "Loading...";
 
-const signinEmailValidator = (func1 = () => { }) => {
-    emailValidator(emailInput.value)
-        .then((msg) => {
-            emailValidatorEl.innerText = msg;
-            emailValidatorEl.classList.remove('email-validator');
-            button.disabled = false;
-            func1();
-        }).catch((msg) => {
-            emailValidatorEl.innerText = msg;
-            emailValidatorEl.classList.add('email-validator');
-            button.disabled = true;
-        })
-    
-}
+      const res = await login(
+        usernameInput.value,
+        emailInput.value,
+        passwordInput.value
+      );
+      const data = await res.json();
 
-const signinPasswordValidator = (func2 = () => { }) => {
-    passwordValidator(passwordInput.value)
-        .then((msg) => {
-            passwordValidatorEl.innerText = msg;
-            passwordValidatorEl.classList.remove('password-validator');
-            button.disabled = false;
-            func2();
-        }).catch((msg) => {
-            passwordValidatorEl.innerText = msg;
-            passwordValidatorEl.classList.add('password-validator');
-            button.disabled = true;
-        })
-    
-}
+      generalValidatorEl.classList.remove("loading");
+      generalValidatorEl.textContent = "";
 
-const userValidator = (func3 = () => { }) => {
-    const user = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
-
-    // func3();
-    if (user === null) {
-        localStorage.setItem('user', JSON.stringify({
-            email: emailInput.value,
-            password: passwordInput.value,
-            isLoggedIn: true
-        }))
-        window.location.assign("../dashboard.html")
-    } else {
-        if (user.email === emailInput.value && user.password === passwordInput.value) {
-            const user = JSON.parse(localStorage.getItem('user'));
-            user.isLoggedIn = true;
-            localStorage.setItem('user',JSON.stringify(user));
-            window.location.assign("../dashboard.html");
+      if (res.status !== 200) {
+        if (/email/gi.test(data.message)) {
+          emailValidatorEl.style.display = "block";
+          emailValidatorEl.textContent = data.message;
+          return;
+        } else if (/password/gi.test(data.message)) {
+          passwordValidatorEl.style.display = "block";
+          passwordValidatorEl.textContent = data.message;
+          return;
+        } else if (/username/gi.test(data.message)) {
+          usernameValidatorEl.style.display = "block";
+          usernameValidatorEl.textContent = data.message;
+          return;
         } else {
-            if (user.email !== emailInput.value) {
-                emailValidatorEl.innerText = "user email not correct \n re-enter last used";
-                emailValidatorEl.classList.add('email-validator');
-                button.disabled = true;
-            } else {
-                emailValidatorEl.innerText = '';
-                emailValidatorEl.classList.remove('email-validator');
-                button.disabled = false;
-            }
-
-            if (user.password !== passwordInput.value) {
-                passwordValidatorEl.innerText = "user password not correct \n re-enter last used";
-                passwordValidatorEl.classList.add('password-validator');
-                button.disabled = true;
-            } else {
-                passwordValidatorEl.innerText = '';
-                passwordValidatorEl.classList.remove('password-validator');
-                button.disabled = false;
-            }
+          generalValidatorEl.style.display = "block";
+          generalValidatorEl.textContent = data.message;
+          return;
         }
+      }
+
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          token: `Bearer ${data.accessToken}`,
+          isLoggedIn: true,
+        })
+      );
+      window.location.assign("../dashboard.html");
+    } catch (err) {
+      generalValidatorEl.style.display = "block";
+      generalValidatorEl.textContent = (err.message || err).replace(/[',",`]/gi,"");
     }
-}
+  });
+};
 
+signinScript();
 
-//  add eventlisteners on elements
-
-
-emailInput.addEventListener('keyup', (e) => {
-    signinEmailValidator();
-})
-
-
-passwordInput.addEventListener('keyup', (e) => {
-    signinPasswordValidator();
-})
-
-button.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    // userValidator(() => signinPasswordValidator(signinEmailValidator()));
-
-    if (emailInput.value !== '' && passwordInput.value !== "") {
-        userValidator();
-    } else {
-        signinEmailValidator()
-        signinPasswordValidator()
-    }
-    
-})
 
