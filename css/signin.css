@@ -67,23 +67,23 @@ form div h5 {
   margin: 5px 0;
   padding: 0px;
   font-weight: 200;
+  font-size: 14px;
 }
 
 form div input {
   width: 100%;
   height: 35px;
   margin: 5px 0;
-  background: #e5e5e5;
+  background: #e8f0fe;
   border-radius: 5px;
   padding: 10px;
 }
 
-
 form button {
   height: 45px;
-  background: #e5e5e5;
+  width: 100%;
+  background: #e8f0fe;
   border-radius: 5px;
-  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,11 +97,26 @@ form button h5 a {
 
 /*    validation class */
 
-.email-validator , .password-validator{
+#email-validator , #password-validator, #username-validator, #general-validator{
+  display: none;
   text-align: center;
   color: rgb(158, 55, 8);
   width: 100%;
-  margin-top: 10px;
+  margin: 0;
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: 0.04em;
+}
+
+#general-validator {
+  margin-bottom: 5px;
+  display: block;
+}
+
+.loading {
+  color: rgb(48, 192, 48) !important;
+  display: block !important;
 }
 
 @media screen and (max-width: 500px) {

@@ -18,7 +18,6 @@
 main {
   margin-top: 56px;
   width: 100%;
-  max-width: 1366px;
   min-height: calc(100vh - 56px);
 }
 
@@ -35,50 +34,63 @@ main {
     font-weight: bold;
 }
 
+.fetch-status{
+  display: none;
+  width: 1fr;
+  height: 32px;
+  margin: 3vw 7vw;
+  background: rgb(27, 134, 6);
+  border-radius: 5px;
+}
+
+.fetch-status p{
+  width: 100%;
+  text-align: center;
+  line-height: 32px;
+}
+
 .query-container{
     display: flex;
     flex-flow: column nowrap !important;
     width: 1fr;
     margin: 3vw 7vw;
-    padding: 2.5rem;
+    padding: 1rem 1.5rem;
     background: #465058;
     text-align: left;
 }
 
 .query-name {
-    padding: 0.5rem 1.5rem;
+    padding: 5px 10px;
     background: #222733;
     border-radius: 10px;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.5rem;
+    font-size: 16px;
     line-height: 2.5rem;
-    text-decoration-line: underline;
     color: #C4C4C4;
     display: static !important;
 }
 
 .query-email {
-    padding: 0.5rem 1.5rem;
+    padding: 5px 10px;
     background: #222733;
     border-radius: 10px;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.2rem;
+    font-size: 14px;
     line-height: 2rem;
-    text-decoration-line: underline;
     color: #C4C4C4;
     display: static !important;
 }
 
 .query-description{
-    padding: 0.5rem 1.5rem;
+    padding: 5px 10px;
     background: #222733;
     border-radius: 5px;
     font-style: normal;
     font-weight: normal;
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: 14px;
+    line-height: 2rem;
     color: #C4C4C4;
     text-align: left;
     display: static !important;

@@ -1,112 +1,160 @@
 // import { spaceValidator } from "./modules/validators";
+import { getOneArticle } from "./services/articlesServices.js";
+import { createComment } from "./services/commentsServices.js";
+import { updateLikes } from "./services/likesServices.js";
 
-const backArrow = document.getElementById('back-arrow');
-const titleEl = document.getElementById('title');
-const descriptionEl = document.getElementById('description');
-const imageEl = document.getElementById('image');
-const saveCommentEl = document.getElementById('save-comment');
-const textareaEl = document.getElementById('textarea');
-const commentWrapperEl = document.getElementById('comment-wrapper');
-const generalError = document.getElementById('general-error');
-const likeBtn = document.getElementById('like-btn');
-const disLikeBtn = document.getElementById('dislike-btn');
-const likeNum = document.getElementById('like-num');
-const disLikeNum = document.getElementById('dislike-num');
+const backArrow = document.getElementById("back-arrow");
+const titleEl = document.getElementById("title");
+const descriptionEl = document.getElementById("description");
+const imageEl = document.getElementById("image");
+const saveCommentEl = document.getElementById("save-comment");
+const textareaEl = document.getElementById("textarea");
+const fullnameEl = document.getElementById("fullname");
+const commentWrapperEl = document.getElementById("comment-wrapper");
+const generalError = document.getElementById("general-error");
+const likeBtn = document.getElementById("like-btn");
+const disLikeBtn = document.getElementById("dislike-btn");
+const likeNum = document.getElementById("like-num");
+const disLikeNum = document.getElementById("dislike-num");
+const fetchStatus = document.getElementById("fetch-status");
 
-saveCommentEl.disabled = false;
-document.body.scrollTop = -1;
+const prevPage = localStorage.getItem("fomPage", "../blog.html");
 
+const articleScript = async () => {
+  fetchStatus.style.display = "block";
+  saveCommentEl.disabled = false;
+  document.body.scrollTop = -1;
 
-const blogs = Object.values(JSON.parse(localStorage.getItem('blogs')));
-const currentBlog = localStorage.getItem('current-blog');
-let currentBlogIndex = null;
+  const currentBlog = JSON.parse(localStorage.getItem("current-blog"));
+  fetchStatus.style.display = "none";
 
-for (let i = 0; i < blogs.length; i++){
-    if (blogs[i].title === currentBlog) {
+  titleEl.textContent = currentBlog.title;
+  descriptionEl.innerHTML = currentBlog.description;
+  imageEl.setAttribute("src", currentBlog.image);
+  likeNum.textContent = currentBlog.likes;
+  disLikeNum.textContent = currentBlog.dislikes;
 
-        titleEl.textContent = blogs[i].title;
-        descriptionEl.innerHTML = blogs[i].description;
-        imageEl.setAttribute('src', blogs[i].image);
-        likeNum.textContent = (blogs[i].likes) ? blogs[i].likes : 0;
-        disLikeNum.textContent = (blogs[i].dislikes) ? blogs[i].dislikes : 0;
-        currentBlogIndex = i;
+  let comments = currentBlog.comments;
 
-        let comments = blogs[i].comments ? Object.values(blogs[i].comments) : [];
+  comments.forEach((comment) => {
+    let div = document.createElement("div");
+    div.setAttribute("class", "comment");
+    div.setAttribute("id", comment._id);
 
-        comments.forEach((comment) => {
+    const newDate = new Date(comment.date).toLocaleString("en-GB", {
+      year: "numeric",
+      month: "long",
+      day: "2-digit",
+      weekday: "long",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+    });
 
-            let div = document.createElement('div');
-            div.setAttribute('class', "comment");
+    const commentNode = `
+                    <p><strong>By</strong>: ${comment.fullname}</p>
+                    <h4>${comment.description}</h4>
+                    <p><strong>On</strong>: ${newDate}</p>
+                `;
 
-            const commentNode = `
-                    <h4>${comment}</h4>
-                `
+    div.innerHTML = commentNode;
+    commentWrapperEl.append(div);
+  });
 
-            div.innerHTML = commentNode;
-            commentWrapperEl.append(div)
-        })
-        break;
-    }
-}
+  // add event Listeners
 
+  backArrow.addEventListener("click", (e) => {
+    window.location.href = prevPage;
+  });
 
-// add event Listeners
-
-backArrow.addEventListener('click', (e) => {
-    window.history.back()
-})
-
-likeBtn.addEventListener('click', (e) => {
+  likeBtn.addEventListener("click", async (e) => {
     likeNum.textContent++;
 
-    const newBlogs = [...blogs]
-    const updatedBlog = newBlogs[currentBlogIndex];
-    updatedBlog.likes = likeNum.textContent;
+    const res = await updateLikes({
+      id: currentBlog._id,
+      likes: likeNum.textContent,
+    });
+    const data = await res.json();
 
-    localStorage.setItem("blogs", JSON.stringify({
-        ...newBlogs
-    }));
-})
+    if (res.status === 200) {
+      const prevBlogs = { ...JSON.parse(localStorage.getItem("current-blog")) };
+      prevBlogs.likes = data.data.likes;
+      localStorage.setItem("current-blog", JSON.stringify(prevBlogs));
+      generalError.textContent = "";
+      generalError.classList.remove("error");
+    } else {
+      generalError.textContent = data.message;
+      generalError.classList.add("error");
+    }
+  });
 
-disLikeBtn.addEventListener('click', (e) => {
+  disLikeBtn.addEventListener("click", async (e) => {
     disLikeNum.textContent++;
 
-    const newBlogs = [...blogs]
-    const updatedBlog = newBlogs[currentBlogIndex];
-    updatedBlog.dislikes = disLikeNum.textContent;
+    const res = await updateLikes({
+      id: currentBlog._id,
+      dislikes: disLikeNum.textContent,
+    });
+    const data = await res.json();
 
-    localStorage.setItem("blogs", JSON.stringify({
-        ...newBlogs
-    }));
-})
-
-saveCommentEl.addEventListener('click', (e) => {
-    
-    e.preventDefault();
-    
-    if (textareaEl.value !== "") {
-        let newBlogs = [...blogs];
-    
-        let comments = newBlogs[currentBlogIndex].comments ? Object.values(newBlogs[currentBlogIndex].comments) : [];
-        comments = [...comments, textareaEl.value];
-        newBlogs[currentBlogIndex].comments = { ...comments };
-    
-        localStorage.setItem("blogs", JSON.stringify({
-            ...newBlogs
-        }));
-        
-        saveCommentEl.disabled = true;
-        window.location.reload();
+    if (res.status === 200) {
+      const prevBlogs = { ...JSON.parse(localStorage.getItem("current-blog")) };
+      prevBlogs.dislikes = data.data.dislikes;
+      localStorage.setItem("current-blog", JSON.stringify(prevBlogs));
+      generalError.textContent = "";
+      generalError.classList.remove("error");
     } else {
-        generalError.textContent = "Please enter your comment";
-        generalError.classList.add('error');
+      generalError.textContent = data.message;
+      generalError.classList.add("error");
     }
-})
+  });
+
+  saveCommentEl.addEventListener("click", async (e) => {
+    e.preventDefault();
+
+    try {
+      saveCommentEl.disabled = true;
+
+      if ((textareaEl.value !== "", fullnameEl.value !== "")) {
+        generalError.textContent = "Saving comment...";
+        generalError.classList.add("error");
+
+        const res = await createComment({
+          id: currentBlog._id,
+          fullname: fullnameEl.value,
+          description: textareaEl.value,
+        });
+        const data = await res.json();
+
+        if (res.status !== 200) {
+          generalError.textContent = data.message;
+          generalError.classList.add("error");
+        } else {
+          const article = await getOneArticle(currentBlog._id);
+          localStorage.setItem(
+            "current-blog",
+            JSON.stringify(await article.data)
+          );
+          window.location.reload();
+        }
+      } else {
+        if (textareaEl.value !== "")
+          generalError.textContent = "Please enter your comment";
+        if (fullnameEl.value !== "")
+          generalError.textContent = "Please enter your fullname";
+        generalError.classList.add("error");
+      }
+    } catch (error) {
+      generalError.textContent = error.message.replace(/[',",`]/gi,"");
+      generalError.classList.add("error");
+      setTimeout(() => {
+        generalError.textContent = "";
+        generalError.classList.remove("error");
+      }, 2000)
+    }
+  });
+};
+
+articleScript();
 
 
-
-
-//  remove all event listeners
-backArrow.removeEventListener('click', (e) => {
-    window.history.back()
-})

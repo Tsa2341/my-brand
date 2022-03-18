@@ -10,55 +10,58 @@
 </head>
 
 <body>
-    <div class="container">
+    <!--  navigation bar     -->
 
-        <!--  navigation bar     -->
+    <nav>
+        <a href="./index.html">Home</a>
+        <ul>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./projects.html">Projects</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+        </ul>
+    </nav>
+    <script type="module" async src="./js/modules/navbarValidator.js"></script>
+    <!--    main section      -->
 
-        <nav>
-            <a href="./index.html">Home</a>
-            <ul>
-                <li><a href="./about.html">About</a></li>
-                <li><a href="./projects.html">Projects</a></li>
-                <li><a href="./contact.html">Contact</a></li>
-                <li><a href="./blog.html">Blog</a></li>
-            </ul>
-        </nav>
-        <script async src="./js/modules/navbarValidator.js"></script>
-        <!--    main section      -->
+    <main>
+        <div>
+            <img id="image" class="header-image" src="#" alt="article image">
+            <!-- <a href="./blog.html"> -->
+            <img id="back-arrow" src="./public/back arrow.svg" class="back-arrow">
+            <!-- </a> -->
+            <h1><strong id="title"></strong></h1>
+        </div>
+        <div id="fetch-status" class="fetch-status"><p>Fetching blogs . . .</p></div>
+        <p id="description"></p>
+        <div class="like-or-dislike-container">
+            <img src="./public/like btn.svg" class="like-or-dislike" id="like-btn" alt="like button">
+            <h3 id="like-num">0</h3>
 
-        <main>
-            <div>
-                <img id="image" class="header-image" src="./public/article1.svg" alt="article icon">
-                <!-- <a href="./blog.html"> -->
-                <img id="back-arrow" src="./public/back arrow.svg" class="back-arrow">
-                <!-- </a> -->
-                <h1><strong id="title">New Blog 1</strong></h1>
-            </div>
-            <p id="description">
-                Lörem ipsum on monominat retår hexagösm presm, maläs och spelig är enveckasförsvar prevare makrortad.
-            </p>
-            <div class="like-or-dislike-container">
-                <img src="./public/like btn.svg" class="like-or-dislike" id="like-btn" alt="like button">
-                <h3 id="like-num">0</h3>
+            <img src="./public/dislike btn.svg" class="like-or-dislike" id="dislike-btn" alt="dislike button">
+            <h3 id="dislike-num">0</h3>
+        </div>
+        <h3>Comments</h3>
+        <div class="line-w"></div>
+        <div class="comment-wrapper" id="comment-wrapper">
+            <form method="post">
+                <div class="fullname-wrapper">
+                    <label for="fullname">Full Name: </label>
+                    <input type="text" name="fullname" id="fullname">
+                </div>
+                <div class="description-wrapper">
+                    <label for="description">Comment: </label>
+                    <textarea name="description" id="textarea"></textarea>
+                </div>
+                <!-- <div class="button-wrapper"> -->
+                <button id="save-comment">Send</button>
+                <!-- </div> -->
+            </form>
+            <div id="general-error"></div>
 
-                <img src="./public/dislike btn.svg" class="like-or-dislike" id="dislike-btn" alt="dislike button">
-                <h3 id="dislike-num">0</h3>
-            </div>
-            <h3>Comments</h3>
-            <div class="line-w"></div>
-            <div class="comment-wrapper" id="comment-wrapper">
-                <form method="post">
-                    <textarea name="textarea" id="textarea"></textarea>
-                    <!-- <div class="button-wrapper"> -->
-                    <button id="save-comment">Send</button>
-                    <!-- </div> -->
-                </form>
-                <div id="general-error"></div>
-
-                <div class="comment"></div>
-            </div>
-        </main>
-    </div>
+            <!-- <div class="comment"></div> -->
+        </div>
+    </main>
     <script type="module" async src="./js/articleScript.js"></script>
 </body>
 

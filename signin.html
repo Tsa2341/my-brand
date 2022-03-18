@@ -28,7 +28,7 @@
             <li><a href="./blog.html">Blog</a></li>
         </ul>
     </nav>
-    <script async src="./js/modules/navbarValidator.js"></script>
+    <script type="module" async src="./js/modules/navbarValidator.js"></script>
     <!--   main   -->
 
     <main>
@@ -37,20 +37,28 @@
             <div class="line-w"></div>
         </div>
 
-        <form action="submit">
+        <form>
+            <div>
+                <h5>User Name: </h5>
+                <input type="text" name="username" id="username">
+                <div id="username-validator"></div>
+            </div>
             <div>
                 <h5>Email Address: </h5>
-                <input type="text" name="email" id="email" placeholder="example@(gmail|yahoo|andela).com">
+                <input type="email" name="email" id="email" placeholder="example@(gmail|yahoo|andela).com">
                 <div id="email-validator"></div>
             </div>
             <div>
                 <h5>Pasword: </h5>
-                <input type="password" label="password" name="password" id="password">
+                <input type="password" name="password" id="password">
                 <div id="password-validator"></div>
             </div>
-            <button id="button" disabled>
-                <h5><strong>Sign In</strong></h5>
-            </button>
+            <div>
+                <div id="general-validator"></div>
+                <button id="button">
+                    <h5><strong>Sign In</strong></h5>
+                </button>
+            </div>
         </form>
     </main>
     <script type="module" async src="./js/signinScript.js"></script>

@@ -22,7 +22,7 @@
       <li><a href="./blog.html">Blog</a></li>
     </ul>
   </nav>
-  <script async src="./js/modules/navbarValidator.js"></script>
+  <script type="module" async src="./js/modules/navbarValidator.js"></script>
   <!--     main section      -->
   <main>
     <div class="background-circle"></div>
@@ -35,8 +35,9 @@
     <form>
       <div class="container">
         <div class="name-container">
-          <label for="name">Full Names:</label>
-          <input type="text" id="name" name="name" textholder="Full name">
+          <label for="fullname">Full Names:</label>
+          <input type="text" id="name" name="fullname" textholder="Full name">
+          <div id="fullname-validator"></div>
         </div>
 
         <div class="email-container">
@@ -51,7 +52,7 @@
           <div id="general-validator"></div>
         </div>
 
-        <!-- <div id="success"></div> -->
+        <div id="success"></div>
         <button type="reset" id="button">send</button>
       </div>
     </form>
